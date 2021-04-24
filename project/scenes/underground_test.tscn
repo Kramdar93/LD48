@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/ug_mover.gd" type="Script" id=1]
 [ext_resource path="res://scenes/buildings/building.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/baseController.gd" type="Script" id=3]
+[ext_resource path="res://scenes/buildings/tunnel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/font/custom_text.tscn" type="PackedScene" id=5]
 
 [node name="Node2D" type="Node2D"]
@@ -10,24 +11,77 @@ script = ExtResource( 1 )
 
 [node name="playerBase" type="Node2D" parent="."]
 
-[node name="building" parent="playerBase" instance=ExtResource( 2 )]
-position = Vector2( 406, 322.5 )
+[node name="command" parent="playerBase" instance=ExtResource( 2 )]
+position = Vector2( 400, 300 )
+type = "command"
+
+[node name="dropoff" parent="playerBase" instance=ExtResource( 2 )]
+position = Vector2( 400, 75 )
+z_index = 200
+type = "port"
+sticky_y = true
 
 [node name="baseController" type="Node" parent="playerBase"]
 script = ExtResource( 3 )
 baseBuilding = ExtResource( 2 )
+tunnelScene = ExtResource( 4 )
 
-[node name="Line2D" type="Line2D" parent="."]
-position = Vector2( 246, 264 )
-points = PoolVector2Array( 0, 0, 100, 100 )
-width = 3.0
-default_color = Color( 1, 1, 1, 1 )
-begin_cap_mode = 1
-end_cap_mode = 1
-sharp_limit = 1.0
-round_precision = 1
+[node name="tunnel" parent="playerBase" instance=ExtResource( 4 )]
+points = PoolVector2Array( 400, 75, 400, 300 )
 
-[node name="custom_text" parent="." instance=ExtResource( 5 )]
-position = Vector2( 45, 521 )
+[node name="counts" type="Node" parent="."]
+
+[node name="custom_text" parent="counts" instance=ExtResource( 5 )]
+position = Vector2( 42, 506 )
 z_index = 1000
-text = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890,.!?$"
+text = "Oxygen"
+
+[node name="custom_text2" parent="counts" instance=ExtResource( 5 )]
+position = Vector2( 42, 522 )
+z_index = 1000
+text = "Water"
+
+[node name="custom_text3" parent="counts" instance=ExtResource( 5 )]
+position = Vector2( 42, 538 )
+z_index = 1000
+text = "Food"
+
+[node name="custom_text4" parent="counts" instance=ExtResource( 5 )]
+position = Vector2( 42, 554 )
+z_index = 1000
+text = "Minerals"
+
+[node name="custom_text5" parent="counts" instance=ExtResource( 5 )]
+position = Vector2( 42, 570 )
+z_index = 1000
+text = "Credit"
+
+[node name="oxygen" parent="counts" instance=ExtResource( 5 )]
+position = Vector2( 120, 506 )
+z_index = 1000
+text = "Oxygen"
+
+[node name="water" parent="counts" instance=ExtResource( 5 )]
+position = Vector2( 120, 522 )
+z_index = 1000
+text = "Water"
+
+[node name="food" parent="counts" instance=ExtResource( 5 )]
+position = Vector2( 120, 538 )
+z_index = 1000
+text = "Food"
+
+[node name="minerals" parent="counts" instance=ExtResource( 5 )]
+position = Vector2( 120, 554 )
+z_index = 1000
+text = "Minerals"
+
+[node name="credit" parent="counts" instance=ExtResource( 5 )]
+position = Vector2( 120, 570 )
+z_index = 1000
+text = "Credit"
+
+[node name="custom_text6" parent="counts" instance=ExtResource( 5 )]
+position = Vector2( 112, 570 )
+z_index = 1000
+text = "$"

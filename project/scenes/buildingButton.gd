@@ -5,6 +5,8 @@ export (PackedScene) var build_menu_scene
 
 export (PackedScene) var tunnel_menu_scene
 
+export (PackedScene) var shop_menu_scene
+
 # apparently when objects are freed your reference switches to its parent???
 # store path and lookup instead...
 var build_menu_path = null
@@ -31,10 +33,20 @@ func open_tunnel_menu():
 	get_parent().add_child(build_menu)
 	build_menu_path = build_menu.get_path()
 	print("added: " + build_menu.get_path())
+
+func open_shop_menu():
+	var build_menu = shop_menu_scene.instance()
+	get_parent().add_child(build_menu)
+	build_menu_path = build_menu.get_path()
+	print("added: " + build_menu.get_path())
 	
 func get_should_open_all():
 	var driver = get_parent().get_node("driver")
 	return !driver.is_enemy and driver.type == "empty"
+	
+func get_should_open_shop():
+	var driver = get_parent().get_node("driver")
+	return !driver.is_enemy and driver.type == "port"
 
 func _button_pressed():
 	if time_since_created > 0.1:
@@ -42,6 +54,10 @@ func _button_pressed():
 			var build_menu = get_menu()
 			if build_menu == null or !is_instance_valid(build_menu):
 				open_build_menu()
+		elif get_should_open_shop():
+			var build_menu = get_menu()
+			if build_menu == null or !is_instance_valid(build_menu):
+				open_shop_menu()
 		else:
 			var build_menu = get_menu()
 			if build_menu == null or !is_instance_valid(build_menu):

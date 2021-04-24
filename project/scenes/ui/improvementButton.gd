@@ -14,5 +14,7 @@ func _ready():
 
 
 func _button_pressed():
-	get_parent().get_parent().get_node("driver").set_type(type)
+	var result = get_parent().get_parent().get_parent().get_node("baseController").submit_trade(0,0,0,-1,0)
+	if result:
+		get_parent().get_parent().get_node("driver").set_type(type)
 	get_parent().remove()

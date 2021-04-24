@@ -8,7 +8,10 @@ var origin = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	var line = get_parent().get_node("Line")
+	line.points[0] = position
+	line.points[1] = position
+	line.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,6 +31,7 @@ func _process(delta):
 	if origin != null:
 		line.points[0] = origin.position
 		line.points[1] = position
+		line.visible = true
 		
 
 func build():

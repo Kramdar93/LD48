@@ -180,5 +180,7 @@ func assignLetter(obj, letter):
 		obj.frame = 65
 	elif letter == '$':
 		obj.frame = 66
+	elif letter == '-':
+		obj.frame = 67
 	else:
 		obj.frame = 65

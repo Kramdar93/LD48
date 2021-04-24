@@ -15,7 +15,9 @@ func _ready():
 #	pass
 
 func _button_pressed():
-	var newTunnel = tunnelBlueprint.instance()
-	newTunnel.get_node("Area2D").origin = get_parent().get_parent()
-	get_parent().get_parent().get_parent().add_child(newTunnel)
+	var result = get_parent().get_parent().get_parent().get_node("baseController").submit_trade(0,0,0,-1,0)
+	if result:
+		var newTunnel = tunnelBlueprint.instance()
+		newTunnel.get_node("Area2D").origin = get_parent().get_parent()
+		get_parent().get_parent().get_parent().add_child(newTunnel)
 	get_parent().remove()
