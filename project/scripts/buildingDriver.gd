@@ -2,7 +2,7 @@ extends Node
 
 
 var type = "empty"
-
+var is_enemy = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

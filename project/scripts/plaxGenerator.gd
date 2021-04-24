@@ -43,8 +43,8 @@ func moveChildren(x):
 		child.position.x += laxed_amount
 	cullChildren() # you were supposed to be the chosen one!
 
-func _unhandled_input(event):
-	if event.is_action_pressed("ui_right"):
-		moveChildren(10)
-	if event.is_action_pressed("ui_left"):
-		moveChildren(-10)
+func _input(event):
+	if event.is_action("ui_right"):
+		moveChildren(-12)
+	if event.is_action("ui_left"):
+		moveChildren(12)

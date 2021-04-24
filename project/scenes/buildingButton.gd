@@ -24,9 +24,12 @@ func open_build_menu():
 	build_menu_path = build_menu.get_path()
 	print("added: " + build_menu.get_path())
 	
+func get_should_open():
+	var driver = get_parent().get_node("driver")
+	return !driver.is_enemy and driver.type == "empty"
 
 func _button_pressed():
-	if time_since_created > 0.5:
+	if time_since_created > 0.5 and get_should_open():
 		var build_menu = get_menu()
 		if build_menu == null or !is_instance_valid(build_menu):
 			open_build_menu()
@@ -42,3 +45,4 @@ func _input(event):
 		if build_menu != null and is_instance_valid(build_menu) and event.button_index != 1: # not left click
 			build_menu.remove()
 			build_menu_path = null
+	# todo: hide when mouse gets too far away
