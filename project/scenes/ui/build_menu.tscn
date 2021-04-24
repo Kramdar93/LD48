@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/ui/improvementButton.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ui/tunnelButton.gd" type="Script" id=2]
 [ext_resource path="res://scenes/ui/tunnel_blueprint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/ui/build_menu.gd" type="Script" id=4]
+[ext_resource path="res://scenes/font/custom_text.tscn" type="PackedScene" id=5]
 
 [node name="build_menu" type="Node2D"]
 script = ExtResource( 4 )
@@ -13,45 +14,70 @@ margin_left = -25.0
 margin_top = 28.0
 margin_right = 28.0
 margin_bottom = 48.0
-text = "tunnel"
+focus_mode = 0
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+flat = true
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 tunnelBlueprint = ExtResource( 3 )
 
+[node name="custom_text" parent="tunnel" instance=ExtResource( 5 )]
+position = Vector2( 4.5, 8 )
+text = "TUNNEL"
+
 [node name="extractor" type="Button" parent="."]
 margin_left = -24.0
 margin_top = -47.0
 margin_right = 32.0
 margin_bottom = -27.0
-text = "extract"
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 type = "extractor"
 
+[node name="custom_text2" parent="extractor" instance=ExtResource( 5 )]
+position = Vector2( 6.5, 9 )
+text = "EXTRACT"
+
 [node name="sensor" type="Button" parent="."]
 margin_left = 34.0
 margin_top = -8.0
 margin_right = 89.0
 margin_bottom = 12.0
-text = "sensor"
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 type = "sensor"
 
+[node name="custom_text3" parent="sensor" instance=ExtResource( 5 )]
+position = Vector2( 4.5, 8 )
+text = "SENSOR"
+
 [node name="fortify" type="Button" parent="."]
 margin_left = -76.0
 margin_top = -10.0
 margin_right = -32.0
 margin_bottom = 10.0
-text = "forify"
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 type = "fortification"
+
+[node name="custom_text4" parent="fortify" instance=ExtResource( 5 )]
+position = Vector2( 3.5, 9 )
+text = "FORTIFY"

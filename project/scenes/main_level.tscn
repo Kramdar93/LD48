@@ -234,13 +234,12 @@ z_index = 100
 [node name="AnimatedSprite" type="AnimatedSprite" parent="sky"]
 position = Vector2( -3.05176e-05, 0 )
 frames = SubResource( 5 )
-frame = 3
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="sky"]
 position = Vector2( 0, -300 )
 frames = SubResource( 5 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="sky_mover" type="Node" parent="sky"]

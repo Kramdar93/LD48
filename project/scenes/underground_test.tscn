@@ -27,3 +27,4 @@ baseBuilding = ExtResource( 2 )
 [node name="custom_text" parent="." instance=ExtResource( 5 )]
 position = Vector2( 45, 521 )
 z_index = 1000
+text = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890,.!?$"

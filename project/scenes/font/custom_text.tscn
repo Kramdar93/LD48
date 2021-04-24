@@ -7,7 +7,6 @@
 [node name="custom_text" type="Node2D"]
 script = ExtResource( 1 )
 letter_obj = ExtResource( 2 )
-text = "asdf"
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )

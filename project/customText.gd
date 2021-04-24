@@ -29,11 +29,12 @@ func force_update(new_text):
 	text = new_text
 	clear_text()
 	for letter in text:
-		var new_letter = letter_obj.instance()
-		new_letter.position.x = x
-		new_letter.position.y = y
-		add_child(new_letter)
-		assignLetter(new_letter, letter)
+		if letter != ' ':
+			var new_letter = letter_obj.instance()
+			new_letter.position.x = x
+			new_letter.position.y = y
+			add_child(new_letter)
+			assignLetter(new_letter, letter)
 		x += width
 		if x > line_length*width:
 			x = 0
