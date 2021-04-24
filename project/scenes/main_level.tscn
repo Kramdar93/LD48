@@ -234,15 +234,22 @@ z_index = 100
 [node name="AnimatedSprite" type="AnimatedSprite" parent="sky"]
 position = Vector2( -3.05176e-05, 0 )
 frames = SubResource( 5 )
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="sky"]
 position = Vector2( 0, -300 )
 frames = SubResource( 5 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="sky_mover" type="Node" parent="sky"]
 script = ExtResource( 8 )
+
+[node name="one_pix2" type="Sprite" parent="."]
+modulate = Color( 0.0117647, 0.0117647, 0.0117647, 1 )
+position = Vector2( 400, 300 )
+scale = Vector2( 800, 600 )
+texture = ExtResource( 1 )
 
 [node name="Node2D" parent="." instance=ExtResource( 9 )]

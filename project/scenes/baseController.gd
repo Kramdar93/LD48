@@ -33,7 +33,11 @@ func get_drivers():
 		if child_driver != null:
 			drivers.append(child_driver)
 
-func create_building(position):
+func create_building(originBuilding, position):
 	var newBuilding = baseBuilding.instance()
 	get_parent().add_child(newBuilding)
 	newBuilding.position = position
+	var o_driver = originBuilding.get_node("driver")
+	var n_driver = newBuilding.get_node("driver")
+	o_driver.child_buildings.append(newBuilding)
+	n_driver.parent_building = originBuilding

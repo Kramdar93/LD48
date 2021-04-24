@@ -16,5 +16,6 @@ func _ready():
 
 func _button_pressed():
 	var newTunnel = tunnelBlueprint.instance()
+	newTunnel.get_node("Area2D").origin = get_parent().get_parent()
 	get_parent().get_parent().get_parent().add_child(newTunnel)
 	get_parent().remove()
