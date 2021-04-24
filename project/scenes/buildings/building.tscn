@@ -23,7 +23,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-buildMenu = ExtResource( 2 )
+build_menu_scene = ExtResource( 2 )
 
 [node name="driver" type="Node" parent="."]
 script = ExtResource( 4 )

@@ -1,35 +1,44 @@
 extends Button
 
 
-export (PackedScene) var buildMenu
+export (PackedScene) var build_menu_scene
 
-var menu
+# apparently when objects are freed your reference switches to its parent???
+# store path and lookup instead...
+var build_menu_path = null
+
+# fml
+var time_since_created = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect("pressed", self, "_button_pressed")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	time_since_created += delta
 
-func open_menu():
-		menu = buildMenu.instance()
-		get_parent().add_child(menu)
-		print("added")
-	
-func close_menu():
-		get_parent().remove_child(menu)
-		menu.queue_free()
-		menu = null
-		print("removed")
+func open_build_menu():
+	var build_menu = build_menu_scene.instance()
+	get_parent().add_child(build_menu)
+	build_menu_path = build_menu.get_path()
+	print("added: " + build_menu.get_path())
 	
 
 func _button_pressed():
-	if menu == null or !is_instance_valid(menu):
-		open_menu()
-	else:
-		close_menu()
+	if time_since_created > 0.5:
+		var build_menu = get_menu()
+		if build_menu == null or !is_instance_valid(build_menu):
+			open_build_menu()
 	
-func _unhandled_input(event):
-	pass # todo: hide menues on click out
+func get_menu():
+	if build_menu_path == null:
+		return null
+	return get_node(build_menu_path)
+
+func _input(event):
+	if event is InputEventMouseButton:
+		var build_menu = get_menu()
+		if build_menu != null and is_instance_valid(build_menu) and event.button_index != 1: # not left click
+			build_menu.remove()
+			build_menu_path = null

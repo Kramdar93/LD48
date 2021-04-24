@@ -12,8 +12,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
+
 func _button_pressed():
 	get_parent().get_parent().get_node("driver").set_type(type)
-	# remove our whole root
-	get_parent().get_parent().remove_child(get_parent())
-	get_parent().queue_free()
+	get_parent().remove()
