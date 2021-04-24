@@ -22,7 +22,8 @@ func makeObj(x):
 	var new_item = item_to_generate.instance()
 	new_item.position.y = 0 # relative
 	new_item.position.x = x
-	new_item.z_index = z_index
+	new_item.z_index = 0 # relative
+	new_item.z_as_relative = z_as_relative
 	add_child(new_item)
 
 func cullChildren():
