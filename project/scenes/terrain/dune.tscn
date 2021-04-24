@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://terrain_mono.png" type="Texture" id=1]
+[ext_resource path="res://scripts/random_tile.gd" type="Script" id=2]
+[ext_resource path="res://scripts/SpriteModulator.gd" type="Script" id=3]
+
+[node name="dune" type="Node2D"]
+
+[node name="SpriteModulator" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="SpriteRandomizer" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite" parent="sprites"]
+texture = ExtResource( 1 )
+vframes = 4
+hframes = 2

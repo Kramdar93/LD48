@@ -1,0 +1,210 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://one_pix.png" type="Texture" id=1]
+[ext_resource path="res://scenes/terrain/dune.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/plaxGenerator.gd" type="Script" id=3]
+[ext_resource path="res://nsky.png" type="Texture" id=4]
+[ext_resource path="res://scripts/SpriteModulator.gd" type="Script" id=5]
+[ext_resource path="res://comb_border.png" type="Texture" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 800, 300 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 300, 800, 300 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 600, 800, 300 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 900, 800, 300 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 400, 300 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 400, 150 )
+z_index = -100
+frames = SubResource( 5 )
+frame = 2
+playing = true
+
+[node name="plaxGenerator" type="Node2D" parent="."]
+position = Vector2( 400, 60 )
+script = ExtResource( 3 )
+paralax_factor = 3
+item_to_generate = ExtResource( 2 )
+
+[node name="dune" parent="plaxGenerator" instance=ExtResource( 2 )]
+
+[node name="plaxGenerator2" type="Node2D" parent="."]
+position = Vector2( 400, 65 )
+z_index = -1
+script = ExtResource( 3 )
+paralax_factor = 6
+density = 20
+item_to_generate = ExtResource( 2 )
+
+[node name="ground" type="Node2D" parent="."]
+position = Vector2( 400, 105 )
+scale = Vector2( 800, 60 )
+
+[node name="SpriteModulator" type="Node" parent="ground"]
+script = ExtResource( 5 )
+
+[node name="sprites" type="Node" parent="ground"]
+
+[node name="border" type="Sprite" parent="ground/sprites"]
+position = Vector2( 7, 142 )
+texture = ExtResource( 6 )
+
+[node name="border2" type="Sprite" parent="ground/sprites"]
+position = Vector2( 31, 142 )
+texture = ExtResource( 6 )
+
+[node name="border4" type="Sprite" parent="ground/sprites"]
+position = Vector2( 55, 142 )
+texture = ExtResource( 6 )
+
+[node name="border3" type="Sprite" parent="ground/sprites"]
+position = Vector2( 79, 142 )
+texture = ExtResource( 6 )
+
+[node name="border8" type="Sprite" parent="ground/sprites"]
+position = Vector2( 103, 142 )
+texture = ExtResource( 6 )
+
+[node name="border7" type="Sprite" parent="ground/sprites"]
+position = Vector2( 127, 142 )
+texture = ExtResource( 6 )
+
+[node name="border6" type="Sprite" parent="ground/sprites"]
+position = Vector2( 151, 142 )
+texture = ExtResource( 6 )
+
+[node name="border5" type="Sprite" parent="ground/sprites"]
+position = Vector2( 175, 142 )
+texture = ExtResource( 6 )
+
+[node name="border12" type="Sprite" parent="ground/sprites"]
+position = Vector2( 199, 142 )
+texture = ExtResource( 6 )
+
+[node name="border11" type="Sprite" parent="ground/sprites"]
+position = Vector2( 223, 142 )
+texture = ExtResource( 6 )
+
+[node name="border10" type="Sprite" parent="ground/sprites"]
+position = Vector2( 247, 142 )
+texture = ExtResource( 6 )
+
+[node name="border9" type="Sprite" parent="ground/sprites"]
+position = Vector2( 271, 142 )
+texture = ExtResource( 6 )
+
+[node name="border24" type="Sprite" parent="ground/sprites"]
+position = Vector2( 295, 142 )
+texture = ExtResource( 6 )
+
+[node name="border23" type="Sprite" parent="ground/sprites"]
+position = Vector2( 319, 142 )
+texture = ExtResource( 6 )
+
+[node name="border22" type="Sprite" parent="ground/sprites"]
+position = Vector2( 343, 142 )
+texture = ExtResource( 6 )
+
+[node name="border21" type="Sprite" parent="ground/sprites"]
+position = Vector2( 367, 142 )
+texture = ExtResource( 6 )
+
+[node name="border20" type="Sprite" parent="ground/sprites"]
+position = Vector2( 391, 142 )
+texture = ExtResource( 6 )
+
+[node name="border19" type="Sprite" parent="ground/sprites"]
+position = Vector2( 415, 142 )
+texture = ExtResource( 6 )
+
+[node name="border18" type="Sprite" parent="ground/sprites"]
+position = Vector2( 439, 142 )
+texture = ExtResource( 6 )
+
+[node name="border17" type="Sprite" parent="ground/sprites"]
+position = Vector2( 463, 142 )
+texture = ExtResource( 6 )
+
+[node name="border16" type="Sprite" parent="ground/sprites"]
+position = Vector2( 487, 142 )
+texture = ExtResource( 6 )
+
+[node name="border15" type="Sprite" parent="ground/sprites"]
+position = Vector2( 511, 142 )
+texture = ExtResource( 6 )
+
+[node name="border14" type="Sprite" parent="ground/sprites"]
+position = Vector2( 535, 142 )
+texture = ExtResource( 6 )
+
+[node name="border13" type="Sprite" parent="ground/sprites"]
+position = Vector2( 559, 142 )
+texture = ExtResource( 6 )
+
+[node name="border36" type="Sprite" parent="ground/sprites"]
+position = Vector2( 583, 142 )
+texture = ExtResource( 6 )
+
+[node name="border35" type="Sprite" parent="ground/sprites"]
+position = Vector2( 607, 142 )
+texture = ExtResource( 6 )
+
+[node name="border34" type="Sprite" parent="ground/sprites"]
+position = Vector2( 631, 142 )
+texture = ExtResource( 6 )
+
+[node name="border33" type="Sprite" parent="ground/sprites"]
+position = Vector2( 655, 142 )
+texture = ExtResource( 6 )
+
+[node name="border32" type="Sprite" parent="ground/sprites"]
+position = Vector2( 679, 142 )
+texture = ExtResource( 6 )
+
+[node name="border31" type="Sprite" parent="ground/sprites"]
+position = Vector2( 703, 142 )
+texture = ExtResource( 6 )
+
+[node name="border30" type="Sprite" parent="ground/sprites"]
+position = Vector2( 727, 142 )
+texture = ExtResource( 6 )
+
+[node name="border29" type="Sprite" parent="ground/sprites"]
+position = Vector2( 751, 142 )
+texture = ExtResource( 6 )
+
+[node name="border28" type="Sprite" parent="ground/sprites"]
+position = Vector2( 775, 142 )
+texture = ExtResource( 6 )
+
+[node name="border27" type="Sprite" parent="ground/sprites"]
+position = Vector2( 799, 142 )
+texture = ExtResource( 6 )
+
+[node name="sprite" type="Sprite" parent="ground/sprites"]
+position = Vector2( 400, 105 )
+scale = Vector2( 800, 60 )
+texture = ExtResource( 1 )
