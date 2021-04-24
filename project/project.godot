@@ -15,11 +15,12 @@ _global_script_class_icons={
 
 [application]
 
-config/name="LD48"
+config/name="In the Hole"
 run/main_scene="res://scenes/main_level.tscn"
 boot_splash/image="res://pp.png"
 boot_splash/use_filter=false
-config/icon="res://icon.png"
+config/icon="res://pinkynail.png"
+config/windows_native_icon="res://pinkynail.ico"
 
 [display]
 
