@@ -7,7 +7,7 @@
 [ext_resource path="res://scripts/SpriteModulator.gd" type="Script" id=5]
 [ext_resource path="res://comb_border.png" type="Texture" id=6]
 [ext_resource path="res://scripts/Clock.gd" type="Script" id=7]
-[ext_resource path="res://scenes/sky_mover.gd" type="Script" id=8]
+[ext_resource path="res://scripts/sky_mover.gd" type="Script" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -233,13 +233,12 @@ z_index = 100
 [node name="AnimatedSprite" type="AnimatedSprite" parent="sky"]
 position = Vector2( -3.05176e-05, 0 )
 frames = SubResource( 5 )
-frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="sky"]
 position = Vector2( 0, -300 )
 frames = SubResource( 5 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="sky_mover" type="Node" parent="sky"]

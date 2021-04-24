@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LD48"
-run/main_scene="res://scenes/terrain_test.tscn"
+run/main_scene="res://scenes/underground_test.tscn"
 boot_splash/image="res://pp.png"
 boot_splash/use_filter=false
 config/icon="res://icon.png"

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://pp.png" type="Texture" id=1]
+[ext_resource path="res://scenes/ui/build_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/buildingButton.gd" type="Script" id=3]
+[ext_resource path="res://scripts/buildingDriver.gd" type="Script" id=4]
+
+[node name="building" type="Node2D"]
+position = Vector2( 422, 272 )
+
+[node name="pp" type="Sprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = -6.0
+margin_top = -11.0
+margin_right = 6.0
+margin_bottom = 9.0
+hint_tooltip = "asdf"
+flat = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+buildMenu = ExtResource( 2 )
+
+[node name="driver" type="Node" parent="."]
+script = ExtResource( 4 )

@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/ui/improvementButton.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ui/tunnelButton.gd" type="Script" id=2]
+[ext_resource path="res://scenes/ui/tunnel_blueprint.tscn" type="PackedScene" id=3]
+
+[node name="build_menu" type="Node2D"]
+
+[node name="tunnel" type="Button" parent="."]
+margin_left = -25.0
+margin_top = 28.0
+margin_right = 28.0
+margin_bottom = 48.0
+text = "tunnel"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+tunnelBlueprint = ExtResource( 3 )
+
+[node name="extractor" type="Button" parent="."]
+margin_left = -24.0
+margin_top = -47.0
+margin_right = 32.0
+margin_bottom = -27.0
+text = "extract"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+type = "extractor"
+
+[node name="sensor" type="Button" parent="."]
+margin_left = 34.0
+margin_top = -8.0
+margin_right = 89.0
+margin_bottom = 12.0
+text = "sensor"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+type = "sensor"
+
+[node name="fortify" type="Button" parent="."]
+margin_left = -76.0
+margin_top = -10.0
+margin_right = -32.0
+margin_bottom = 10.0
+text = "forify"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+type = "fortification"
