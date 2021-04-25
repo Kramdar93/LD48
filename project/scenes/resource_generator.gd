@@ -17,12 +17,12 @@ func _ready():
 # NOTE: these should all be lower/ non-linear. I'm leaving them this insane for a shorter playtime.
 # it would be better for performance to switch these and have fewer, larger value deposits...
 func get_max_resource_amount_by_depth(depth):
-	var slope = 0.05 # double at 20 to max of 10
+	var slope = 0.1 # double at 10 to max of 10
 	var absolute_min = 5
 	return int(slope*depth + absolute_min)
 	
 func get_min_resource_amount_by_depth(depth):
-	var slope = 0.02 # doubles at 50 to min of 2
+	var slope = 0.05 # doubles at 20 to min of 2
 	var absolute_min = 1
 	return int(slope*depth + absolute_min)
 	

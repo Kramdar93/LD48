@@ -31,10 +31,10 @@ text = "This is a game about Digging and Debt.  You will be tasked with trying t
 [node name="custom_text3" parent="." instance=ExtResource( 3 )]
 position = Vector2( -352, -128 )
 line_length = 80
-text = "This game is mainly mouse-based. Left click on buildings for actions, right clickto cancel. You can scroll up and down with your mousewheel. Alternatively, you   can scroll around by using W,A,S and D or the arrow keys."
+text = "This game is mainly mouse-based. Left click on buildings for actions, right clickto cancel. You can scroll up and down with your mousewheel. Alternatively, you   can scroll around by using W,A,S and D or the arrow keys. Press Escape at any    point to quit."
 
 [node name="icons" type="Sprite" parent="."]
-position = Vector2( -335, -64 )
+position = Vector2( -334.5, -18 )
 scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 4 )
 vframes = 4
@@ -42,12 +42,12 @@ hframes = 4
 frame = 12
 
 [node name="custom_text4" parent="." instance=ExtResource( 3 )]
-position = Vector2( -304, -64 )
+position = Vector2( -303.5, -18 )
 line_length = 80
 text = "Oxygen"
 
 [node name="icons2" type="Sprite" parent="."]
-position = Vector2( -336, -32 )
+position = Vector2( -335.5, 14 )
 scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 4 )
 vframes = 4
@@ -55,12 +55,12 @@ hframes = 4
 frame = 10
 
 [node name="custom_text5" parent="." instance=ExtResource( 3 )]
-position = Vector2( -305, -32 )
+position = Vector2( -304.5, 14 )
 line_length = 80
 text = "Water"
 
 [node name="icons3" type="Sprite" parent="."]
-position = Vector2( -336, 0 )
+position = Vector2( -335.5, 46 )
 scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 4 )
 vframes = 4
@@ -68,12 +68,12 @@ hframes = 4
 frame = 11
 
 [node name="custom_text6" parent="." instance=ExtResource( 3 )]
-position = Vector2( -305, 0 )
+position = Vector2( -304.5, 46 )
 line_length = 80
 text = "Food"
 
 [node name="icons4" type="Sprite" parent="."]
-position = Vector2( -335, 32 )
+position = Vector2( -334.5, 78 )
 scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 4 )
 vframes = 4
@@ -81,24 +81,24 @@ hframes = 4
 frame = 9
 
 [node name="custom_text7" parent="." instance=ExtResource( 3 )]
-position = Vector2( -304, 32 )
+position = Vector2( -303.5, 78 )
 line_length = 80
 text = "Minerals"
 
 [node name="icons8" type="Sprite" parent="."]
-position = Vector2( 18, -64 )
+position = Vector2( 18.5, -18 )
 scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 4 )
 vframes = 4
 hframes = 4
 
 [node name="custom_text11" parent="." instance=ExtResource( 3 )]
-position = Vector2( 49, -64 )
+position = Vector2( 49.5, -18 )
 line_length = 80
 text = "Empty room"
 
 [node name="icons7" type="Sprite" parent="."]
-position = Vector2( 17, -32 )
+position = Vector2( 17.5, 14 )
 scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 4 )
 vframes = 4
@@ -106,12 +106,12 @@ hframes = 4
 frame = 1
 
 [node name="custom_text10" parent="." instance=ExtResource( 3 )]
-position = Vector2( 48, -32 )
+position = Vector2( 48.5, 14 )
 line_length = 80
 text = "Extractor - mines minerals on the left"
 
 [node name="icons6" type="Sprite" parent="."]
-position = Vector2( 17, 0 )
+position = Vector2( 17.5, 46 )
 scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 4 )
 vframes = 4
@@ -119,12 +119,12 @@ hframes = 4
 frame = 3
 
 [node name="custom_text9" parent="." instance=ExtResource( 3 )]
-position = Vector2( 48, 0 )
+position = Vector2( 48.5, 46 )
 line_length = 80
 text = "Sensor - reveals nearby resources"
 
 [node name="icons5" type="Sprite" parent="."]
-position = Vector2( 18, 32 )
+position = Vector2( 18.5, 78 )
 scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 4 )
 vframes = 4
@@ -132,12 +132,12 @@ hframes = 4
 frame = 4
 
 [node name="custom_text8" parent="." instance=ExtResource( 3 )]
-position = Vector2( 49, 32 )
+position = Vector2( 49.5, 78 )
 line_length = 80
 text = "Fortification - looks cool I guess"
 
 [node name="icons9" type="Sprite" parent="."]
-position = Vector2( 18, 64 )
+position = Vector2( 18.5, 110 )
 scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 4 )
 vframes = 4
@@ -145,12 +145,12 @@ hframes = 4
 frame = 8
 
 [node name="custom_text12" parent="." instance=ExtResource( 3 )]
-position = Vector2( 49, 64 )
+position = Vector2( 49.5, 110 )
 line_length = 80
 text = "Command Room - where you start"
 
 [node name="icons10" type="Sprite" parent="."]
-position = Vector2( 18, 96 )
+position = Vector2( 18.5, 142 )
 scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 4 )
 vframes = 4
@@ -158,7 +158,7 @@ hframes = 4
 frame = 2
 
 [node name="custom_text13" parent="." instance=ExtResource( 3 )]
-position = Vector2( 49, 96 )
+position = Vector2( 49.5, 142 )
 line_length = 80
 text = "Offworld trading port"
 

@@ -13,7 +13,7 @@ var food_store = 0.0
 var mineral_store = 0.0
 var credit_store = 0.0
 
-var need_sensing = true
+var sensing_passes_needed = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,19 +42,20 @@ func extract_init():
 			resource.queue_free()	
 
 func _physics_process(delta):
-	if need_sensing:
+	if sensing_passes_needed > 0: # run this a few times, we may not be updated fully yet...
 		var overlaps = get_parent().get_node("sensingArea").get_overlapping_areas()
 		for area in overlaps:
 			var resource = area.get_parent()
 			if resource.has_method("get_type"):
 				resource.z_index = 0
+		sensing_passes_needed -= 1
 		
 
 func sensor_init():
 	# resize collider!
 	get_parent().get_node("light").scale *= 10
 	get_parent().get_node("sensingArea/CollisionShape2D").scale *= 10
-	need_sensing = true # do this next physics tick
+	sensing_passes_needed = 3 # do this next physics tick
 	
 # this will likely be non-functional for the compo...
 func fortification_init():

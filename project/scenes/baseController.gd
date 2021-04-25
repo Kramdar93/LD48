@@ -136,6 +136,8 @@ func _process(delta):
 		update_minerals(false)
 	if oldCredits != credit_budget:
 		update_credits(false)
+		if credit_budget >= 0:
+			get_tree().change_scene("res://scenes/infoscreens/winner.tscn")
 	oldFood = food_budget
 	oldWater = water_budget
 	oldOxygen = oxygen_budget
