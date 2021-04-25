@@ -1,0 +1,26 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://audio/audio_manager.gd" type="Script" id=1]
+[ext_resource path="res://audio/sfsx/get.wav" type="AudioStream" id=2]
+[ext_resource path="res://audio/sfsx/place.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/sfsx/sensor.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/sfsx/alarm.wav" type="AudioStream" id=5]
+[ext_resource path="res://audio/sfsx/bad.wav" type="AudioStream" id=6]
+[ext_resource path="res://audio/sfsx/cancel.wav" type="AudioStream" id=7]
+[ext_resource path="res://audio/idle_dnb_loop.wav" type="AudioStream" id=8]
+[ext_resource path="res://audio/interlude.wav" type="AudioStream" id=9]
+[ext_resource path="res://audio/idle_dnb_intro.wav" type="AudioStream" id=10]
+[ext_resource path="res://audio/ambience.wav" type="AudioStream" id=11]
+
+[node name="audio" type="Node"]
+script = ExtResource( 1 )
+sfx = [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
+music = [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ) ]
+
+[node name="musicPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="sfxPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="ambientPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="alarmPlayer" type="AudioStreamPlayer" parent="."]

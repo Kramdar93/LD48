@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/idle_dnb_loop.wav-6c86ad7cd8657748fc782c365ebdefd8.sample"
+
+[deps]
+
+source_file="res://audio/idle_dnb_loop.wav"
+dest_files=[ "res://.import/idle_dnb_loop.wav-6c86ad7cd8657748fc782c365ebdefd8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

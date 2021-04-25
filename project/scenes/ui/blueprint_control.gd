@@ -6,6 +6,8 @@ var bad_modulate = Color(1,0,0)
 var can_place = false
 var origin = null
 
+var max_length = 500
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var line = get_parent().get_node("Line")
@@ -13,17 +15,22 @@ func _ready():
 	line.points[1] = position
 	line.visible = false
 
+func set_bad_mod():
+	if old_modulate == null:
+		old_modulate = get_node("Sprite").modulate
+	get_node("Sprite").modulate = bad_modulate
+	
+func reset_mod():
+	get_node("Sprite").modulate = old_modulate
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#print(len(get_overlapping_areas()))
 	if len(get_overlapping_areas()) > 0:
-		if old_modulate == null:
-			old_modulate = get_node("Sprite").modulate
-		get_node("Sprite").modulate = bad_modulate
+		set_bad_mod()
 		can_place = false
 	elif old_modulate != null:
-		get_node("Sprite").modulate = old_modulate
+		reset_mod()
 		can_place = true
 	else:
 		can_place = true
@@ -32,13 +39,18 @@ func _process(delta):
 		line.points[0] = origin.position
 		line.points[1] = position
 		line.visible = true
+		if can_place and position.distance_to(origin.position) > max_length:
+			set_bad_mod()
+			can_place = false
 		
 
 func build():
 	if can_place:
 		get_parent().get_parent().get_node("baseController").create_building(origin, global_position)
 		get_parent().queue_free()
+		get_node("/root/Game/Static/audio").play_sfx("place")
 	else:
+		get_node("/root/Game/Static/audio").play_sfx("cancel")
 		cancel()
 	
 func cancel():
@@ -52,6 +64,5 @@ func _input(event):
 		if event.button_index == 1: # left click
 			build()
 		else: # idc
-			
 			cancel()
 

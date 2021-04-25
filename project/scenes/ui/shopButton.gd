@@ -3,60 +3,80 @@ extends Button
 export var type = "buy"
 export var commodity = "water"
 
-var waterBuy = 20
-var waterSell = 15
-var oxygenBuy = 10
-var oxygenSell = 7
+var waterBuy = 50
+var waterSell = 40
+var oxygenBuy = 20
+var oxygenSell = 15
 var foodBuy = 100
 var foodSell = 65
 var mineralBuy = 1000
 var mineralSell = 800
 
+var delay = 0.5
+var rate = 0.05
+
+var timer = delay
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	connect("pressed", self, "_button_pressed")
+	connect("button_down", self, "_button_pressed")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-func _button_pressed():
+func handle_input():
 	var baseController = get_parent().get_parent().get_parent().get_node("baseController")
 	if baseController != null:
+		var result = false
 		if type == "buy":
 			if commodity == "water":
-				baseController.submit_trade(0,1,0,0,-waterBuy)
+				result = baseController.submit_trade(0,1,0,0,-waterBuy)
 				#baseController.water_budget += 1
 				#baseController.credit_budget -= waterBuy
 			elif commodity == "food":
-				baseController.submit_trade(1,0,0,0,-foodBuy)
+				result = baseController.submit_trade(1,0,0,0,-foodBuy)
 				#baseController.food_budget += 1
 				#baseController.credit_budget -= foodBuy
 			elif commodity == "oxygen":
-				baseController.submit_trade(0,0,1,0,-oxygenBuy)
+				result = baseController.submit_trade(0,0,1,0,-oxygenBuy)
 				#baseController.oxygen_budget += 1
 				#baseController.credit_budget -= oxygenBuy
 			elif commodity == "mineral":
-				baseController.submit_trade(0,0,0,1,-mineralBuy)
+				result = baseController.submit_trade(0,0,0,1,-mineralBuy)
 				#baseController.mineral_budget += 1
 				#baseController.credit_budget -= mineralBuy
 		else: 
 			if commodity == "water":
-				baseController.submit_trade(0,-1,0,0,waterSell)
+				result = baseController.submit_trade(0,-1,0,0,waterSell)
 				#baseController.water_budget -= 1
 				#baseController.credit_budget += waterSell
 			elif commodity == "food":
-				baseController.submit_trade(-1,0,0,0,foodSell)
+				result = baseController.submit_trade(-1,0,0,0,foodSell)
 				#baseController.food_budget -= 1
 				#baseController.credit_budget += foodSell
 			elif commodity == "oxygen":
-				baseController.submit_trade(0,0,-1,0,oxygenSell)
+				result = baseController.submit_trade(0,0,-1,0,oxygenSell)
 				#baseController.oxygen_budget -= 1
 				#baseController.credit_budget += oxygenSell
 			elif commodity == "mineral":
-				baseController.submit_trade(0,0,0,-1,mineralSell)
+				result = baseController.submit_trade(0,0,0,-1,mineralSell)
 				#baseController.mineral_budget -= 1
 				#baseController.credit_budget += mineralSell
+		if result:
+			get_node("/root/Game/Static/audio").play_sfx("get")
+		else:
+			get_node("/root/Game/Static/audio").play_sfx("cancel")
 	else:
 		print("could not find base!")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if pressed and timer <= 0:
+		handle_input()
+		timer = rate
+	elif not pressed:
+		timer = delay
+	elif pressed and timer > 0:
+		timer -= delta
+
+
+
+func _button_pressed():
+	handle_input()

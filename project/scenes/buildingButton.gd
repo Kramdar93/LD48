@@ -66,7 +66,7 @@ func _button_pressed():
 func get_menu():
 	if build_menu_path == null:
 		return null
-	return get_node(build_menu_path)
+	return get_node_or_null(build_menu_path)
 
 func _input(event):
 	if event is InputEventMouseButton:

@@ -40,6 +40,7 @@ func extract_init():
 			elif resource.get_type() == "credit":
 				credit_store += resource.amount
 			resource.queue_free()	
+	get_node("/root/Game/Static/audio").play_sfx("bad")
 
 func _physics_process(delta):
 	if sensing_passes_needed > 0: # run this a few times, we may not be updated fully yet...
@@ -56,16 +57,18 @@ func sensor_init():
 	get_parent().get_node("light").scale *= 10
 	get_parent().get_node("sensingArea/CollisionShape2D").scale *= 10
 	sensing_passes_needed = 3 # do this next physics tick
+	get_node("/root/Game/Static/audio").play_sfx("sensor")
 	
 # this will likely be non-functional for the compo...
 func fortification_init():
-	pass
+	get_node("/root/Game/Static/audio").play_sfx("bad")
 
 func set_type(new_type):
 	if type == "empty":
 		if new_type == "fortification":
 			type = new_type
 			get_parent().get_node("sprite").frame = 4
+			fortification_init()
 		if new_type == "extractor":
 			type = new_type
 			get_parent().get_node("sprite").frame = 2

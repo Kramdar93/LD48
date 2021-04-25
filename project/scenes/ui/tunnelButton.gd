@@ -20,4 +20,7 @@ func _button_pressed():
 		var newTunnel = tunnelBlueprint.instance()
 		newTunnel.get_node("Area2D").origin = get_parent().get_parent()
 		get_parent().get_parent().get_parent().add_child(newTunnel)
+		get_node("/root/Game/Static/audio").play_sfx("get")
+	else:
+		get_node("/root/Game/Static/audio").play_sfx("cancel")
 	get_parent().remove()

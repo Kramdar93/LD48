@@ -14,16 +14,21 @@ export (PackedScene) var food_timeout
 var time_now = 0.0
 var total_time = 0.0
 var time_offset
+var seconds_in_hour
 
 var known_bases = []
 
 var active_timers = []
 
+var can_play_music = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	time_offset = (6.0 / 24) * seconds_in_day # need to do this here, otherwise the default seconds in day will be used.
+	seconds_in_hour = 1.0/24.0 * seconds_in_day
 	print("Game clock path: " + get_path())
 	print("Game time start: " + str(time_now))
+	get_node("/root/Game/Static/audio").start_ambience()
 	
 # floating point error hell. Too bad!
 func format_time(t, total):
@@ -77,6 +82,16 @@ func _process(delta):
 		time_now -= seconds_in_day
 		tick_bases()
 	update_clocks()
+	if time_now > seconds_in_day - seconds_in_hour:
+		get_node("/root/Game/Static/audio").start_alarm()
+	else:
+		get_node("/root/Game/Static/audio").stop_alarm()
+	# play a tune weekly
+	if int(total_time/seconds_in_day) % 7 == 0 and can_play_music:
+		get_node("/root/Game/Static/audio").play_music("interlude")
+		can_play_music = false
+	elif int(total_time/seconds_in_day) % 7 == 1:
+		can_play_music = true
 
 func get_in_game_time():
 	return time_now
@@ -94,4 +109,6 @@ func clearTimer(type):
 	while active_timers.has(type):
 		active_timers.erase(type)
 	get_node("cd_"+type).update_text("", Color(1,0,0))
+	#if len(active_timers) == 0:
+	#	get_node("/root/Game/Static/audio").stop_alarm()
 	

@@ -1,0 +1,26 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://audio/audio_manager.gd" type="Script" id=1]
+[ext_resource path="res://scenes/infoscreens/simple_music_starter.gd" type="Script" id=2]
+[ext_resource path="res://audio/audio.tscn" type="PackedScene" id=3]
+[ext_resource path="res://audio/idle_dnb_loop.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/interlude.wav" type="AudioStream" id=5]
+[ext_resource path="res://audio/idle_dnb_intro.wav" type="AudioStream" id=6]
+[ext_resource path="res://audio/sfsx/get.wav" type="AudioStream" id=7]
+[ext_resource path="res://audio/sfsx/place.wav" type="AudioStream" id=8]
+[ext_resource path="res://audio/sfsx/sensor.wav" type="AudioStream" id=9]
+[ext_resource path="res://audio/sfsx/alarm.wav" type="AudioStream" id=10]
+[ext_resource path="res://audio/ambience.wav" type="AudioStream" id=11]
+[ext_resource path="res://audio/sfsx/bad.wav" type="AudioStream" id=12]
+[ext_resource path="res://audio/sfsx/cancel.wav" type="AudioStream" id=13]
+
+[node name="Static" type="Node"]
+
+[node name="audio" type="Node" parent="." instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+sfx = [ ExtResource( 10 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
+music = [ ExtResource( 11 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ) ]
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource( 2 )
+track = "idle"
