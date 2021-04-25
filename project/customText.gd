@@ -185,5 +185,14 @@ func assignLetter(obj, letter):
 		obj.frame = 66
 	elif letter == '-':
 		obj.frame = 67
+	elif letter == '*':
+		obj.frame = 68
+	elif letter == '\'':
+		obj.frame = 69 # nice
+	elif letter == '(':
+		obj.frame = 70
+	elif letter == ')':
+		obj.frame = 70
+		obj.scale.x = -obj.scale.x
 	else:
 		obj.frame = 65

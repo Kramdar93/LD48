@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="In the Hole"
-run/main_scene="res://scenes/infoscreens/tutorial.tscn"
+run/main_scene="res://scenes/main_level.tscn"
 boot_splash/image="res://pp.png"
 boot_splash/use_filter=false
 config/icon="res://pinkynail.png"

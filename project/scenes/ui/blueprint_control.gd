@@ -42,6 +42,7 @@ func build():
 		cancel()
 	
 func cancel():
+	get_parent().get_parent().get_node("baseController").submit_trade(0,0,0,1,0)
 	get_parent().queue_free()
 
 func _input(event):
@@ -51,5 +52,6 @@ func _input(event):
 		if event.button_index == 1: # left click
 			build()
 		else: # idc
+			
 			cancel()
 

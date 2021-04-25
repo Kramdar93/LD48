@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/infoscreens/loaderButton.gd" type="Script" id=1]
+[ext_resource path="res://one_pix.png" type="Texture" id=2]
+[ext_resource path="res://scenes/font/custom_text.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 400, 300 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="one_pix" type="Sprite" parent="."]
+modulate = Color( 0.0117647, 0.0117647, 0.0117647, 1 )
+scale = Vector2( 800, 600 )
+texture = ExtResource( 2 )
+
+[node name="custom_text" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352.5, -249 )
+scale = Vector2( 1.25, 1.25 )
+z_index = 1
+text = "Welcome to D.E.E.P., the Debtors' Encumbrance Equalization Program!"
+
+[node name="custom_text2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352, -196 )
+line_length = 80
+text = "D.E.E.P. provides unheardof opportunity for cooperative financial restructuring  to alleviate legal responsibilities of consumers as well as profit loss of       producers. Participants in D.E.E.P. see a median sixty-three percent increase in post-debt lifestyle enjoyability* over the alternative complete forfeture and    seizure of property, identity and protein-rich biomass, while enjoying an averagetwenty-four percent longer lifespan to boot! Thank you for taking the first stepsto joining us in clearing your debt!"
+
+[node name="custom_text3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352, -54 )
+line_length = 80
+text = "Please take the time to read our full Terms and Conditions, Privacy Policy, EULA,Disclosure of Financial Institution Involvement, Disclosure of Political         Engagement, Archival Permission for Social Media Content Created During the      Burning Decade ('20s), Bio-quantum Information Release Agreement and Janet's     Newsletter for May. She works very hard on those! These documents are available  on our secure website and are now available in every language in the Inner Arm   Systems, conveniently interleaved for effortless crosschecking!"
+
+[node name="custom_text4" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352, 76 )
+line_length = 80
+text = "By clicking the button below, you indicate that you have read, understood and    agree to the preceding documents. "
+
+[node name="custom_text5" parent="." instance=ExtResource( 3 )]
+position = Vector2( -269, 211 )
+scale = Vector2( 0.75, 0.75 )
+line_length = 80
+text = "This message is a legal document. Forgery, misdirection or negligence is FULLY   enforcable by both the courts of the IASA and Argus Megacorp's Division of       Corporeal Punishment."
+
+[node name="custom_text6" parent="." instance=ExtResource( 3 )]
+position = Vector2( -269, 260 )
+scale = Vector2( 0.75, 0.75 )
+line_length = 80
+text = "*Lifestyle enjoyability pertains to a relative and subjective lack of physical   pain, debilitating or worse, excluding any resulting from injuries aquired duringyour time in the D.E.E.P. or pre-existing conditions."
+
+[node name="start" type="Button" parent="."]
+margin_left = -103.0
+margin_top = 119.0
+margin_right = 97.0
+margin_bottom = 181.0
+focus_mode = 0
+enabled_focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="custom_text5" parent="start" instance=ExtResource( 3 )]
+position = Vector2( 23.5, 30.9999 )
+scale = Vector2( 3, 3 )
+z_index = 1
+text = "I Agree"

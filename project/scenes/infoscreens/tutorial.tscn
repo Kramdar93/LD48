@@ -171,6 +171,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+scene_to_load = "res://scenes/infoscreens/intro.tscn"
 
 [node name="custom_text5" parent="start" instance=ExtResource( 3 )]
 position = Vector2( 23.5, 30.9999 )

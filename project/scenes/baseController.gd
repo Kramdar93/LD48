@@ -7,7 +7,7 @@ export (PackedScene) var tunnelScene
 var food_budget = 1.0
 var water_budget = 1.0
 var oxygen_budget = 1.0
-var mineral_budget = 0.0
+var mineral_budget = 1.0
 var credit_budget = -10000.0
 
 var oldFood = food_budget
@@ -112,14 +112,19 @@ func submit_trade(dFood,dWater,dOxygen,dMinerals,dCredit):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var drivers = get_drivers()
-	if drivers != null:
-		for driver in drivers:
-			# just take all production for now
-			food_budget += driver.food_store
-			water_budget += driver.water_store
-			oxygen_budget += driver.oxygen_store
-			mineral_budget += driver.mineral_store
-			food_budget += driver.food_store
+	for driver in drivers:
+		# just take all production for now
+		food_budget += driver.food_store
+		water_budget += driver.water_store
+		oxygen_budget += driver.oxygen_store
+		mineral_budget += driver.mineral_store
+		credit_budget += driver.credit_store
+		# one time use
+		driver.food_store = 0.0
+		driver.water_store = 0.0
+		driver.oxygen_store = 0.0
+		driver.mineral_store = 0.0
+		driver.credit_store = 0.0
 	if oldFood != food_budget:
 		update_food(false)
 	if oldWater != water_budget:
@@ -138,10 +143,11 @@ func _process(delta):
 
 func get_drivers():
 	var drivers = []
-	for child in get_children():
-		var child_driver = child.get_node("driver")
+	for child in get_parent().get_children():
+		var child_driver = child.get_node_or_null("driver")
 		if child_driver != null:
 			drivers.append(child_driver)
+	return drivers
 
 func create_building(originBuilding, position):
 	var newBuilding = baseBuilding.instance()

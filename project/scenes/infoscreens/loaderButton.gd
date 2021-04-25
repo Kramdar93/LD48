@@ -1,9 +1,6 @@
 extends Button
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export var scene_to_load = "res://scenes/main_level.tscn"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,4 +13,4 @@ func _ready():
 #	pass
 
 func _button_pressed():
-	get_tree().change_scene("res://scenes/main_level.tscn")
+	get_tree().change_scene(scene_to_load)

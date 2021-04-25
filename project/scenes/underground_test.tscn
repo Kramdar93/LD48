@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/ug_mover.gd" type="Script" id=1]
 [ext_resource path="res://scenes/buildings/building.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/baseController.gd" type="Script" id=3]
 [ext_resource path="res://scenes/buildings/tunnel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/font/custom_text.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/terrain/resource.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -85,3 +86,7 @@ position = Vector2( 400, 75 )
 z_index = 200
 type = "port"
 sticky_y = true
+
+[node name="resource" parent="." instance=ExtResource( 6 )]
+position = Vector2( 193, 399 )
+type = "oxygen"
