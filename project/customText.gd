@@ -11,7 +11,7 @@ var height = 16
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	force_update(text)
+	force_update(text, null)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,7 +23,7 @@ func clear_text():
 		remove_child(child)
 		child.queue_free()
 
-func force_update(new_text):
+func force_update(new_text, modulate):
 	var x = 0
 	var y = 0
 	text = new_text
@@ -33,6 +33,8 @@ func force_update(new_text):
 			var new_letter = letter_obj.instance()
 			new_letter.position.x = x
 			new_letter.position.y = y
+			if modulate != null:
+				new_letter.modulate = modulate
 			add_child(new_letter)
 			assignLetter(new_letter, letter)
 		x += width
@@ -40,9 +42,9 @@ func force_update(new_text):
 			x = 0
 			y += height
 
-func update_text(new_text):
+func update_text(new_text, modulate):
 	if new_text != text:
-		force_update(new_text)
+		force_update(new_text, modulate)
 
 # kill me now
 func assignLetter(obj, letter):

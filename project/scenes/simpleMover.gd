@@ -1,9 +1,7 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export var speed = 1
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,8 +13,8 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func remove():
-	# remove our whole root
-	get_parent().remove_child(get_node("."))
-	queue_free()
-	
+func _input(event):
+	if event.is_action("ui_right"):
+		position.x -= 12*speed
+	if event.is_action("ui_left"):
+		position.x += 12*speed

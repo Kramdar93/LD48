@@ -10,13 +10,15 @@ var oxygen_budget = 1.0
 var mineral_budget = 0.0
 var credit_budget = -100000000.0
 
+const in_the_red = Color(1.0,0.0,0.0)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_parent().get_parent().get_node("counts/food").update_text(format_num(food_budget))
-	get_parent().get_parent().get_node("counts/water").update_text(format_num(water_budget))
-	get_parent().get_parent().get_node("counts/oxygen").update_text(format_num(oxygen_budget))
-	get_parent().get_parent().get_node("counts/minerals").update_text(format_num(mineral_budget))
-	get_parent().get_parent().get_node("counts/credit").update_text(format_num(credit_budget))
+	update_food(true)
+	update_water(true)
+	update_oxygen(true)
+	update_minerals(true)
+	update_credits(true)
 
 func format_num(n):
 	var result = ""
@@ -30,6 +32,49 @@ func format_num(n):
 			result = ',' + result
 		result = array[rev_i] + result
 	return result
+
+func update_food(force):
+	var mod = null
+	if food_budget <= 0:
+		mod = in_the_red
+	if force:
+		get_parent().get_parent().get_node("counts/food").force_update(format_num(food_budget),mod)
+	else:
+		get_parent().get_parent().get_node("counts/food").update_text(format_num(food_budget),mod)
+	
+func update_water(force):
+	var mod = null
+	if water_budget <= 0:
+		mod = in_the_red
+	if force:
+		get_parent().get_parent().get_node("counts/water").force_update(format_num(water_budget),mod)
+	else:
+		get_parent().get_parent().get_node("counts/water").update_text(format_num(water_budget),mod)
+	
+func update_oxygen(force):
+	var mod = null
+	if oxygen_budget <= 0:
+		mod = in_the_red
+	if force:
+		get_parent().get_parent().get_node("counts/oxygen").force_update(format_num(oxygen_budget),mod)
+	else:
+		get_parent().get_parent().get_node("counts/oxygen").update_text(format_num(oxygen_budget),mod)
+	
+func update_minerals(force):
+	if force:
+		get_parent().get_parent().get_node("counts/minerals").force_update(format_num(mineral_budget),null)
+	else:
+		get_parent().get_parent().get_node("counts/minerals").update_text(format_num(mineral_budget),null)
+	
+func update_credits(force):
+	var mod = null
+	if credit_budget <= 0:
+		mod = in_the_red
+	if force:
+		get_parent().get_parent().get_node("counts/credit").force_update(format_num(credit_budget),mod)
+	else:
+		get_parent().get_parent().get_node("counts/credit").update_text(format_num(credit_budget),mod)
+	
 
 func submit_trade(dFood,dWater,dOxygen,dMinerals,dCredit):
 	if food_budget + dFood < 0:
@@ -46,15 +91,15 @@ func submit_trade(dFood,dWater,dOxygen,dMinerals,dCredit):
 	mineral_budget += dMinerals
 	credit_budget += dCredit
 	if dFood != 0:
-		get_parent().get_parent().get_node("counts/food").update_text(format_num(food_budget))
+		update_food(false)
 	if dWater != 0:
-		get_parent().get_parent().get_node("counts/water").update_text(format_num(water_budget))
+		update_water(false)
 	if dOxygen != 0:
-		get_parent().get_parent().get_node("counts/oxygen").update_text(format_num(oxygen_budget))
+		update_oxygen(false)
 	if dMinerals != 0:
-		get_parent().get_parent().get_node("counts/minerals").update_text(format_num(mineral_budget))
+		update_minerals(false)
 	if dCredit != 0:
-		get_parent().get_parent().get_node("counts/credit").update_text(format_num(credit_budget))
+		update_credits(false)
 	return true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -75,15 +120,15 @@ func _process(delta):
 		mineral_budget += driver.mineral_store
 		food_budget += driver.food_store
 	if oldFood != food_budget:
-		get_parent().get_parent().get_node("counts/food").update_text(format_num(food_budget))
+		update_food(false)
 	if oldWater != water_budget:
-		get_parent().get_parent().get_node("counts/water").update_text(format_num(water_budget))
+		update_water(false)
 	if oldOxygen != oxygen_budget:
-		get_parent().get_parent().get_node("counts/oxygen").update_text(format_num(oxygen_budget))
+		update_oxygen(false)
 	if oldMinerals != mineral_budget:
-		get_parent().get_parent().get_node("counts/minerals").update_text(format_num(mineral_budget))
+		update_minerals(false)
 	if oldCredits != credit_budget:
-		get_parent().get_parent().get_node("counts/credit").update_text(format_num(credit_budget))
+		update_credits(false)
 
 func get_drivers():
 	var drivers = []
