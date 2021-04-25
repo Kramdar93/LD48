@@ -8,7 +8,7 @@ var food_budget = 1.0
 var water_budget = 1.0
 var oxygen_budget = 1.0
 var mineral_budget = 0.0
-var credit_budget = -100000000.0
+var credit_budget = -10000.0
 
 var oldFood = food_budget
 var oldWater = water_budget
@@ -130,7 +130,6 @@ func _process(delta):
 		update_minerals(false)
 	if oldCredits != credit_budget:
 		update_credits(false)
-	print(str(oldCredits) + " - " + str(credit_budget))
 	oldFood = food_budget
 	oldWater = water_budget
 	oldOxygen = oxygen_budget

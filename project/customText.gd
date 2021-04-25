@@ -16,7 +16,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-#	pass
+#	if Engine.is_editor_hint():
+#		update_text(text,null)
 
 func clear_text():
 	for child in get_children():
