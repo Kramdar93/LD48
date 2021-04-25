@@ -21,3 +21,6 @@ func _button_pressed():
 		for child in map.get_children():
 			if child is Line2D:
 				child.width /= amount
+		# recenter
+		map.position *= amount
+		

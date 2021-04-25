@@ -82,10 +82,13 @@ func update_oxygen(force):
 		get_parent().get_parent().get_node("counts/oxygen").update_text(format_num(oxygen_budget),mod)
 	
 func update_minerals(force):
+	var mod = null
+	if mineral_budget <= 0:
+		mod = in_the_red
 	if force:
-		get_parent().get_parent().get_node("counts/minerals").force_update(format_num(mineral_budget),null)
+		get_parent().get_parent().get_node("counts/minerals").force_update(format_num(mineral_budget),mod)
 	else:
-		get_parent().get_parent().get_node("counts/minerals").update_text(format_num(mineral_budget),null)
+		get_parent().get_parent().get_node("counts/minerals").update_text(format_num(mineral_budget),mod)
 	
 func update_credits(force):
 	var mod = null
@@ -200,7 +203,7 @@ func pack_stats():
 				if driver != null:
 					sibling.remove_child(driver)
 					driver.queue_free()
-				if "sticky_y" in sibling:
+				if "sticky_y" in sibling and sibling.sticky_y:
 					sibling.sticky_y = false
 					sibling.position.y = sibling.old_y
 				sibling.get_parent().remove_child(sibling)
