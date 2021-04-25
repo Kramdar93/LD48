@@ -23,11 +23,11 @@ func _ready():
 	elif colors.size() != segments.size() or colors.size() == 0:
 		print("Sprite Modulator not set up correctly! At: " + get_path())
 	else:
-		print("Game clock found: "+game_clock.get_path())
+		#print("Game clock found: "+game_clock.get_path())
 		max_time = game_clock.seconds_in_day
 		for i in range(segments.size()):
 			real_segments.append(segments[i] * game_clock.seconds_in_day)
-			print(real_segments[i])
+			#print(real_segments[i])
 		set_child_color()
 
 func get_slerp(start, now, end):

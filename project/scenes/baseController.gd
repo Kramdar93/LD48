@@ -128,14 +128,19 @@ func _process(delta):
 		driver.credit_store = 0.0
 	if oldFood != food_budget:
 		update_food(false)
+		print("food: " + str(food_budget) + " (" + str(food_budget - oldFood) + ")")
 	if oldWater != water_budget:
 		update_water(false)
+		print("water: " + str(water_budget) + " (" + str(water_budget - oldWater) + ")")
 	if oldOxygen != oxygen_budget:
 		update_oxygen(false)
+		print("oxygen: " + str(oxygen_budget) + " (" + str(oxygen_budget - oldOxygen) + ")")
 	if oldMinerals != mineral_budget:
 		update_minerals(false)
+		print("minerals: " + str(mineral_budget) + " (" + str(mineral_budget - oldMinerals) + ")")
 	if oldCredits != credit_budget:
 		update_credits(false)
+		print("credits: " + str(credit_budget) + " (" + str(credit_budget - oldCredits) + ")")
 		if credit_budget >= 0:
 			get_tree().change_scene("res://scenes/infoscreens/winner.tscn")
 	oldFood = food_budget

@@ -16,7 +16,6 @@ margin_bottom = 48.0
 focus_mode = 0
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
-flat = true
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -24,5 +23,5 @@ __meta__ = {
 tunnelBlueprint = ExtResource( 3 )
 
 [node name="custom_text" parent="tunnel" instance=ExtResource( 5 )]
-position = Vector2( 4.5, 8 )
+position = Vector2( 7, 10 )
 text = "TUNNEL"

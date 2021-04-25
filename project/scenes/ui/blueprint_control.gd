@@ -6,7 +6,7 @@ var bad_modulate = Color(1,0,0)
 var can_place = false
 var origin = null
 
-var max_length = 500
+var max_length = 300
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

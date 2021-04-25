@@ -17,7 +17,6 @@ margin_bottom = 48.0
 focus_mode = 0
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
-flat = true
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -25,17 +24,16 @@ __meta__ = {
 tunnelBlueprint = ExtResource( 3 )
 
 [node name="custom_text" parent="tunnel" instance=ExtResource( 5 )]
-position = Vector2( 4.5, 8 )
+position = Vector2( 6, 10 )
 text = "TUNNEL"
 
 [node name="extractor" type="Button" parent="."]
-margin_left = -24.0
+margin_left = -28.0
 margin_top = -47.0
-margin_right = 32.0
+margin_right = 34.0
 margin_bottom = -27.0
 focus_mode = 0
 enabled_focus_mode = 0
-flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -43,7 +41,7 @@ __meta__ = {
 type = "extractor"
 
 [node name="custom_text2" parent="extractor" instance=ExtResource( 5 )]
-position = Vector2( 6.5, 9 )
+position = Vector2( 7, 9.5 )
 text = "EXTRACT"
 
 [node name="sensor" type="Button" parent="."]
@@ -53,7 +51,6 @@ margin_right = 89.0
 margin_bottom = 12.0
 focus_mode = 0
 enabled_focus_mode = 0
-flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -61,17 +58,16 @@ __meta__ = {
 type = "sensor"
 
 [node name="custom_text3" parent="sensor" instance=ExtResource( 5 )]
-position = Vector2( 4.5, 8 )
+position = Vector2( 6, 10 )
 text = "SENSOR"
 
 [node name="fortify" type="Button" parent="."]
-margin_left = -76.0
-margin_top = -10.0
-margin_right = -32.0
-margin_bottom = 10.0
+margin_left = -94.0
+margin_top = -8.0
+margin_right = -35.0
+margin_bottom = 12.0
 focus_mode = 0
 enabled_focus_mode = 0
-flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -79,5 +75,5 @@ __meta__ = {
 type = "fortification"
 
 [node name="custom_text4" parent="fortify" instance=ExtResource( 5 )]
-position = Vector2( 3.5, 9 )
+position = Vector2( 5.5, 10 )
 text = "FORTIFY"

@@ -8,40 +8,62 @@
 z_index = 300
 script = ExtResource( 4 )
 
-[node name="custom_text2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -11.5, -23 )
-text = "SELL"
+[node name="buy" type="Button" parent="."]
+margin_left = -20.0
+margin_top = 18.0
+margin_right = 18.0
+margin_bottom = 38.0
+disabled = true
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="custom_text" parent="." instance=ExtResource( 5 )]
-position = Vector2( -8, 28 )
+[node name="custom_text" parent="buy" instance=ExtResource( 5 )]
+position = Vector2( 5, 10 )
 text = "BUY"
 
+[node name="sell" type="Button" parent="."]
+margin_left = -25.0
+margin_top = -37.0
+margin_right = 26.0
+margin_bottom = -17.0
+disabled = true
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="custom_text2" parent="sell" instance=ExtResource( 5 )]
+position = Vector2( 5.5, 10 )
+text = "SELL"
+
 [node name="buyWater" type="Button" parent="."]
-margin_left = -48.0
-margin_top = 40.0
-margin_right = 5.0
-margin_bottom = 60.0
+margin_left = -55.0
+margin_top = 41.0
+margin_right = -2.0
+margin_bottom = 61.0
 focus_mode = 0
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
-flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="custom_text2" parent="buyWater" instance=ExtResource( 5 )]
-position = Vector2( 4.5, 8 )
+position = Vector2( 5, 10 )
 text = "WATER"
 
 [node name="sellWater" type="Button" parent="."]
-margin_left = -51.0
-margin_top = -53.0
-margin_right = 5.0
-margin_bottom = -33.0
+margin_left = -58.0
+margin_top = -60.0
+margin_right = -2.0
+margin_bottom = -40.0
 focus_mode = 0
 enabled_focus_mode = 0
-flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -53,14 +75,13 @@ position = Vector2( 6.5, 9 )
 text = "WATER"
 
 [node name="buyFood" type="Button" parent="."]
-margin_left = 11.0
+margin_left = 4.0
 margin_top = 41.0
-margin_right = 64.0
+margin_right = 57.0
 margin_bottom = 61.0
 focus_mode = 0
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
-flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -68,17 +89,16 @@ __meta__ = {
 commodity = "food"
 
 [node name="custom_text2" parent="buyFood" instance=ExtResource( 5 )]
-position = Vector2( 4.5, 8 )
+position = Vector2( 12, 10 )
 text = "FOOD"
 
 [node name="sellFood" type="Button" parent="."]
-margin_left = 8.0
-margin_top = -52.0
-margin_right = 64.0
-margin_bottom = -32.0
+margin_left = 1.0
+margin_top = -60.0
+margin_right = 57.0
+margin_bottom = -40.0
 focus_mode = 0
 enabled_focus_mode = 0
-flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -87,18 +107,17 @@ type = "sell"
 commodity = "food"
 
 [node name="custom_text3" parent="sellFood" instance=ExtResource( 5 )]
-position = Vector2( 6.5, 9 )
+position = Vector2( 11, 10 )
 text = "FOOD"
 
 [node name="buyMineral" type="Button" parent="."]
-margin_left = 64.0
-margin_top = 40.0
-margin_right = 117.0
-margin_bottom = 60.0
+margin_left = 60.0
+margin_top = 41.0
+margin_right = 120.0
+margin_bottom = 61.0
 focus_mode = 0
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
-flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -110,13 +129,12 @@ position = Vector2( 7, 9.5 )
 text = "MINERAL"
 
 [node name="sellMineral" type="Button" parent="."]
-margin_left = 64.0
-margin_top = -51.0
+margin_left = 60.0
+margin_top = -60.0
 margin_right = 120.0
-margin_bottom = -31.0
+margin_bottom = -40.0
 focus_mode = 0
 enabled_focus_mode = 0
-flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -129,14 +147,13 @@ position = Vector2( 6.5, 9 )
 text = "MINERAL"
 
 [node name="buyOxy" type="Button" parent="."]
-margin_left = -106.0
+margin_left = -113.0
 margin_top = 41.0
-margin_right = -53.0
+margin_right = -60.0
 margin_bottom = 61.0
 focus_mode = 0
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
-flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -144,17 +161,16 @@ __meta__ = {
 commodity = "oxygen"
 
 [node name="custom_text2" parent="buyOxy" instance=ExtResource( 5 )]
-position = Vector2( 4.5, 8 )
+position = Vector2( 18, 10.5 )
 text = "O2"
 
 [node name="sellOxy" type="Button" parent="."]
-margin_left = -109.0
-margin_top = -52.0
-margin_right = -53.0
-margin_bottom = -32.0
+margin_left = -116.0
+margin_top = -60.0
+margin_right = -60.0
+margin_bottom = -40.0
 focus_mode = 0
 enabled_focus_mode = 0
-flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -163,5 +179,5 @@ type = "sell"
 commodity = "oxygen"
 
 [node name="custom_text3" parent="sellOxy" instance=ExtResource( 5 )]
-position = Vector2( 6.5, 9 )
+position = Vector2( 20.5, 9.5 )
 text = "O2"
