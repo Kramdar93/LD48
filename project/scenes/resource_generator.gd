@@ -14,17 +14,27 @@ func _ready():
 	# generate initial chunk and surrounding
 	_process(0)
 	
+# NOTE: these should all be lower/ non-linear. I'm leaving them this insane for a shorter playtime.
+# it would be better for performance to switch these and have fewer, larger value deposits...
 func get_max_resource_amount_by_depth(depth):
-	return 5
+	var slope = 0.05 # double at 20 to max of 10
+	var absolute_min = 5
+	return int(slope*depth + absolute_min)
 	
 func get_min_resource_amount_by_depth(depth):
-	return 1
+	var slope = 0.02 # doubles at 50 to min of 2
+	var absolute_min = 1
+	return int(slope*depth + absolute_min)
 	
 func get_max_number_of_deposits_by_depth(depth):
-	return 10
+	var slope = 0.5
+	var absolute_min = 5
+	return int(slope*depth + absolute_min)
 	
 func get_min_number_of_deposits_by_depth(depth):
-	return 1
+	var slope = 0.25
+	var absolute_min = 1
+	return int(slope*depth + absolute_min)
 
 func get_bounded_randi(bottom, top):
 	if bottom > top:
@@ -38,7 +48,16 @@ func get_random_type_by_depth(depth):
 	var water_weight = 1
 	var food_weight = 1
 	var mineral_weight = 1
-	# todo: make these all change a bit
+	# todo: make these all change a bit more naturally
+	if depth >= 5 and depth < 12:
+		water_weight *= 10
+	elif depth >= 10 and depth < 15:
+		oxy_weight *= 6
+	elif depth >= 20 and depth < 30:
+		water_weight *= 5
+		food_weight *= 10
+	elif depth >= 40 and depth < 50:
+		mineral_weight *= 8
 	var oxy_limit = oxy_weight
 	var water_limit = oxy_limit + water_weight
 	var food_limit = water_limit + food_weight

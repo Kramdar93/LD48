@@ -8,7 +8,7 @@ var food_budget = 1.0
 var water_budget = 1.0
 var oxygen_budget = 1.0
 var mineral_budget = 1.0
-var credit_budget = -10000.0
+var credit_budget = -100000.0
 
 var oldFood = food_budget
 var oldWater = water_budget

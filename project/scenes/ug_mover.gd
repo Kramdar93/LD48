@@ -25,3 +25,4 @@ func _input(event):
 			position.y += 12
 	if event.is_action("ui_down"):
 		position.y -= 12
+	get_node("counts/depth").update_text(str(int(-position.y / 600)+1) + " Km", null)

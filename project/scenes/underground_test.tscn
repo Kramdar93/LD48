@@ -68,6 +68,16 @@ position = Vector2( 112, 570 )
 z_index = 1000
 text = "$"
 
+[node name="depth" parent="counts" instance=ExtResource( 5 )]
+position = Vector2( 119.5, 161.5 )
+z_index = 1000
+text = "Credit"
+
+[node name="custom_text7" parent="counts" instance=ExtResource( 5 )]
+position = Vector2( 42, 162 )
+z_index = 1000
+text = "DEPTH"
+
 [node name="playerBase" type="Node2D" parent="."]
 
 [node name="baseController" type="Node" parent="playerBase"]
@@ -87,10 +97,6 @@ position = Vector2( 400, 75 )
 z_index = 200
 type = "port"
 sticky_y = true
-
-[node name="resource" parent="." instance=ExtResource( 6 )]
-position = Vector2( 193, 399 )
-type = "oxygen"
 
 [node name="resource_generator" type="Node2D" parent="."]
 script = ExtResource( 7 )
