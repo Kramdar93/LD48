@@ -37,6 +37,9 @@ func update_food(force):
 	var mod = null
 	if food_budget <= 0:
 		mod = in_the_red
+		get_node("/root/Game/Static/Clock").showCountdown("food")
+	else:
+		get_node("/root/Game/Static/Clock").clearTimer("food")
 	if force:
 		get_parent().get_parent().get_node("counts/food").force_update(format_num(food_budget),mod)
 	else:
@@ -46,6 +49,9 @@ func update_water(force):
 	var mod = null
 	if water_budget <= 0:
 		mod = in_the_red
+		get_node("/root/Game/Static/Clock").showCountdown("water")
+	else:
+		get_node("/root/Game/Static/Clock").clearTimer("water")
 	if force:
 		get_parent().get_parent().get_node("counts/water").force_update(format_num(water_budget),mod)
 	else:
@@ -55,6 +61,9 @@ func update_oxygen(force):
 	var mod = null
 	if oxygen_budget <= 0:
 		mod = in_the_red
+		get_node("/root/Game/Static/Clock").showCountdown("oxygen")
+	else:
+		get_node("/root/Game/Static/Clock").clearTimer("oxygen")
 	if force:
 		get_parent().get_parent().get_node("counts/oxygen").force_update(format_num(oxygen_budget),mod)
 	else:

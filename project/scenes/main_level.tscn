@@ -133,6 +133,18 @@ text = "Total"
 position = Vector2( 669, 570 )
 text = "00H 00M 00S"
 
+[node name="cd_food" parent="Static/Clock" instance=ExtResource( 12 )]
+position = Vector2( 200, 538 )
+text = "00H 00M 00S"
+
+[node name="cd_water" parent="Static/Clock" instance=ExtResource( 12 )]
+position = Vector2( 200, 522 )
+text = "00H 00M 00S"
+
+[node name="cd_oxygen" parent="Static/Clock" instance=ExtResource( 12 )]
+position = Vector2( 200, 506 )
+text = "00H 00M 00S"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 400, 300 )
 
@@ -325,12 +337,13 @@ z_index = 100
 [node name="AnimatedSprite" type="AnimatedSprite" parent="sky"]
 position = Vector2( -3.05176e-05, 0 )
 frames = SubResource( 5 )
+frame = 3
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="sky"]
 position = Vector2( 0, -300 )
 frames = SubResource( 5 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="sky_mover" type="Node" parent="sky"]
@@ -356,7 +369,7 @@ position = Vector2( 400, 88 )
 scale = Vector2( 0.125, 0.125 )
 z_index = 200
 frames = SubResource( 22 )
-frame = 6
+frame = 9
 playing = true
 
 [node name="sprite_mod" type="Node" parent="base_deco"]
