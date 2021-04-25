@@ -10,6 +10,12 @@ var oxygen_budget = 1.0
 var mineral_budget = 0.0
 var credit_budget = -100000000.0
 
+var oldFood = food_budget
+var oldWater = water_budget
+var oldOxygen = oxygen_budget
+var oldMinerals = mineral_budget
+var oldCredits = credit_budget
+
 const in_the_red = Color(1.0,0.0,0.0)
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +25,8 @@ func _ready():
 	update_oxygen(true)
 	update_minerals(true)
 	update_credits(true)
+	if get_drivers() == null:
+		print("no building drivers!")
 
 func format_num(n):
 	var result = ""
@@ -99,35 +107,19 @@ func submit_trade(dFood,dWater,dOxygen,dMinerals,dCredit):
 	oxygen_budget += dOxygen
 	mineral_budget += dMinerals
 	credit_budget += dCredit
-	if dFood != 0:
-		update_food(false)
-	if dWater != 0:
-		update_water(false)
-	if dOxygen != 0:
-		update_oxygen(false)
-	if dMinerals != 0:
-		update_minerals(false)
-	if dCredit != 0:
-		update_credits(false)
 	return true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var drivers = get_drivers()
-	if drivers == null:
-		return
-	var oldFood = food_budget
-	var oldWater = water_budget
-	var oldOxygen = oxygen_budget
-	var oldMinerals = mineral_budget
-	var oldCredits = credit_budget
-	for driver in drivers:
-		# just take all production for now
-		food_budget += driver.food_store
-		water_budget += driver.water_store
-		oxygen_budget += driver.oxygen_store
-		mineral_budget += driver.mineral_store
-		food_budget += driver.food_store
+	if drivers != null:
+		for driver in drivers:
+			# just take all production for now
+			food_budget += driver.food_store
+			water_budget += driver.water_store
+			oxygen_budget += driver.oxygen_store
+			mineral_budget += driver.mineral_store
+			food_budget += driver.food_store
 	if oldFood != food_budget:
 		update_food(false)
 	if oldWater != water_budget:
@@ -138,6 +130,12 @@ func _process(delta):
 		update_minerals(false)
 	if oldCredits != credit_budget:
 		update_credits(false)
+	print(str(oldCredits) + " - " + str(credit_budget))
+	oldFood = food_budget
+	oldWater = water_budget
+	oldOxygen = oxygen_budget
+	oldMinerals = mineral_budget
+	oldCredits = credit_budget
 
 func get_drivers():
 	var drivers = []

@@ -73,7 +73,8 @@ func showCountdown(type):
 		get_node("cd_"+type).update_text(format_time(seconds_in_day - time_now, false), Color(1,0,0))
 
 func clearTimer(type):
-	if active_timers.has(type):
-		active_timers.remove(type)
+	# ugh
+	while active_timers.has(type):
+		active_timers.erase(type)
 	get_node("cd_"+type).update_text("", Color(1,0,0))
 	
