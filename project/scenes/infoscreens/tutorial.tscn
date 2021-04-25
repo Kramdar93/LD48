@@ -31,7 +31,7 @@ text = "This is a game about Digging and Debt.  You will be tasked with trying t
 [node name="custom_text3" parent="." instance=ExtResource( 3 )]
 position = Vector2( -352, -128 )
 line_length = 80
-text = "This game is mainly mouse-based. Left click on buildings for actions, right clickto cancel. You can scroll up and down with your mousewheel. Alternatively, you   can scroll around by using W,A,S and D or the arrow keys. Press Escape at any    point to quit."
+text = "This game is mainly mouse-based. Left click on buildings for actions, right clickto cancel. You can scroll up and down with your mousewheel. Alternatively, you   can scroll around by using W,A,S and D or the arrow keys. Press Escape at any    point to quit. PageUp and PageDown move faster."
 
 [node name="icons" type="Sprite" parent="."]
 position = Vector2( -334.5, -18 )
