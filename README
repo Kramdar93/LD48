@@ -1,1 +1,7 @@
-This is my project for the Ludum Dare game jam #48. Engine TBD, either Godot or Unity. Hopefully I will have time to update this later.
+This is my project for the Ludum Dare game jam #48. Tentatively titled "In the Hole." It is a Godot 2D project. 
+
+I pity all who tread 'deeper and deeper' down this rabit hole...
+
+Collision layers:
+1. tunnel placement - buildings block, resources don't
+2. resources - buildings can use them, but tunnels need to be built on top

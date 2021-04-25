@@ -1,0 +1,179 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/infoscreens/loaderButton.gd" type="Script" id=1]
+[ext_resource path="res://one_pix.png" type="Texture" id=2]
+[ext_resource path="res://scenes/font/custom_text.tscn" type="PackedScene" id=3]
+[ext_resource path="res://icons.png" type="Texture" id=4]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 400, 300 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="one_pix" type="Sprite" parent="."]
+modulate = Color( 0.0117647, 0.0117647, 0.0117647, 1 )
+scale = Vector2( 800, 600 )
+texture = ExtResource( 2 )
+
+[node name="custom_text" parent="." instance=ExtResource( 3 )]
+position = Vector2( -276, -249 )
+scale = Vector2( 3, 3 )
+z_index = 1
+text = "Welcome to In the Hole!"
+
+[node name="custom_text2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352, -171 )
+line_length = 80
+text = "This is a game about Digging and Debt.  You will be tasked with trying to dig    yourself out of a hole by mining deeper and deeper down another..."
+
+[node name="custom_text3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352, -128 )
+line_length = 80
+text = "This game is mainly mouse-based. Left click on buildings for actions, right clickto cancel. You can scroll up and down with your mousewheel. Alternatively, you   can scroll around by using W,A,S and D or the arrow keys."
+
+[node name="icons" type="Sprite" parent="."]
+position = Vector2( -335, -64 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 4
+frame = 12
+
+[node name="custom_text4" parent="." instance=ExtResource( 3 )]
+position = Vector2( -304, -64 )
+line_length = 80
+text = "Oxygen"
+
+[node name="icons2" type="Sprite" parent="."]
+position = Vector2( -336, -32 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 4
+frame = 10
+
+[node name="custom_text5" parent="." instance=ExtResource( 3 )]
+position = Vector2( -305, -32 )
+line_length = 80
+text = "Water"
+
+[node name="icons3" type="Sprite" parent="."]
+position = Vector2( -336, 0 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 4
+frame = 11
+
+[node name="custom_text6" parent="." instance=ExtResource( 3 )]
+position = Vector2( -305, 0 )
+line_length = 80
+text = "Food"
+
+[node name="icons4" type="Sprite" parent="."]
+position = Vector2( -335, 32 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 4
+frame = 9
+
+[node name="custom_text7" parent="." instance=ExtResource( 3 )]
+position = Vector2( -304, 32 )
+line_length = 80
+text = "Minerals"
+
+[node name="icons8" type="Sprite" parent="."]
+position = Vector2( 18, -64 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 4
+
+[node name="custom_text11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 49, -64 )
+line_length = 80
+text = "Empty room"
+
+[node name="icons7" type="Sprite" parent="."]
+position = Vector2( 17, -32 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 4
+frame = 1
+
+[node name="custom_text10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 48, -32 )
+line_length = 80
+text = "Extractor - mines minerals on the left"
+
+[node name="icons6" type="Sprite" parent="."]
+position = Vector2( 17, 0 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 4
+frame = 3
+
+[node name="custom_text9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 48, 0 )
+line_length = 80
+text = "Sensor - reveals nearby resources"
+
+[node name="icons5" type="Sprite" parent="."]
+position = Vector2( 18, 32 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 4
+frame = 4
+
+[node name="custom_text8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 49, 32 )
+line_length = 80
+text = "Fortification - looks cool I guess"
+
+[node name="icons9" type="Sprite" parent="."]
+position = Vector2( 18, 64 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 4
+frame = 8
+
+[node name="custom_text12" parent="." instance=ExtResource( 3 )]
+position = Vector2( 49, 64 )
+line_length = 80
+text = "Command Room - where you start"
+
+[node name="icons10" type="Sprite" parent="."]
+position = Vector2( 18, 96 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 4
+frame = 2
+
+[node name="custom_text13" parent="." instance=ExtResource( 3 )]
+position = Vector2( 49, 96 )
+line_length = 80
+text = "Offworld trading port"
+
+[node name="start" type="Button" parent="."]
+margin_left = -212.0
+margin_top = 207.0
+margin_right = 188.0
+margin_bottom = 269.0
+focus_mode = 0
+enabled_focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="custom_text5" parent="start" instance=ExtResource( 3 )]
+position = Vector2( 23.5, 30.9999 )
+scale = Vector2( 3, 3 )
+z_index = 1
+text = "GET IN THE HOLE!"
