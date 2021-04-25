@@ -1,0 +1,164 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/infoscreens/loaderButton.gd" type="Script" id=1]
+[ext_resource path="res://scenes/infoscreens/stat_extractor.gd" type="Script" id=2]
+[ext_resource path="res://scenes/font/custom_text.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/infoscreens/quit.gd" type="Script" id=4]
+[ext_resource path="res://scenes/misc_controls.gd" type="Script" id=5]
+[ext_resource path="res://scenes/infoscreens/simple_music.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/ug_mover.gd" type="Script" id=7]
+[ext_resource path="res://one_pix.png" type="Texture" id=8]
+[ext_resource path="res://scenes/infoscreens/zoomer.gd" type="Script" id=9]
+
+[node name="Game" type="Node2D"]
+position = Vector2( 400, 300 )
+script = ExtResource( 5 )
+
+[node name="Static" parent="." instance=ExtResource( 6 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="custom_text" parent="." instance=ExtResource( 3 )]
+position = Vector2( -96, -248 )
+scale = Vector2( 3, 3 )
+z_index = 100
+text = "STATISTICS"
+
+[node name="custom_text2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352, -171 )
+z_index = 100
+line_length = 80
+text = "Real Time"
+
+[node name="custom_text3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352, -128 )
+z_index = 100
+line_length = 80
+text = "Game Time"
+
+[node name="custom_text4" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352.5, -78 )
+z_index = 100
+line_length = 80
+text = "Credits Spent"
+
+[node name="custom_text5" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352.5, -31.5 )
+z_index = 100
+line_length = 80
+text = "Credits Earned"
+
+[node name="time" parent="." instance=ExtResource( 3 )]
+position = Vector2( -205.5, -171 )
+z_index = 100
+line_length = 80
+text = "Oh no, it looks like you ran out of Food!"
+
+[node name="game_time" parent="." instance=ExtResource( 3 )]
+position = Vector2( -205.5, -128 )
+z_index = 100
+line_length = 80
+
+[node name="credits_spent" parent="." instance=ExtResource( 3 )]
+position = Vector2( -206, -78 )
+z_index = 100
+line_length = 80
+
+[node name="credits_earned" parent="." instance=ExtResource( 3 )]
+position = Vector2( -206, -31.5 )
+z_index = 100
+line_length = 80
+
+[node name="Node2D2" type="Node2D" parent="."]
+z_index = 100
+
+[node name="restart" type="Button" parent="Node2D2"]
+margin_left = -106.0
+margin_top = 206.0
+margin_right = 111.0
+margin_bottom = 268.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="custom_text6" parent="Node2D2/restart" instance=ExtResource( 3 )]
+position = Vector2( 23.5, 30.9999 )
+scale = Vector2( 3, 3 )
+z_index = 100
+text = "RESTART?"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 220.5, 236.5 )
+z_index = 100
+
+[node name="quit" type="Button" parent="Node2D"]
+margin_left = -25.5
+margin_top = -30.5
+margin_right = 111.5
+margin_bottom = 31.5
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="custom_text7" parent="Node2D/quit" instance=ExtResource( 3 )]
+position = Vector2( 25.5, 30.5 )
+scale = Vector2( 3, 3 )
+z_index = 100
+text = "QUIT"
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2( -323, 236.5 )
+scale = Vector2( 0.333, 0.333 )
+z_index = 100
+
+[node name="zoom_in" type="Button" parent="Node2D3"]
+margin_left = 57.0571
+margin_top = -91.5917
+margin_right = 257.057
+margin_bottom = -29.5917
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="custom_text7" parent="Node2D3/zoom_in" instance=ExtResource( 3 )]
+position = Vector2( 25.5, 30.5 )
+scale = Vector2( 3, 3 )
+z_index = 100
+text = "Zoom In"
+
+[node name="Node2D4" type="Node2D" parent="."]
+position = Vector2( -323, 278 )
+scale = Vector2( 0.333, 0.333 )
+z_index = 100
+
+[node name="zoom_out" type="Button" parent="Node2D4"]
+margin_left = 57.0571
+margin_top = -91.5917
+margin_right = 257.057
+margin_bottom = -29.5917
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+amount = 0.5
+
+[node name="custom_text7" parent="Node2D4/zoom_out" instance=ExtResource( 3 )]
+position = Vector2( 25.5, 30.5 )
+scale = Vector2( 3, 3 )
+z_index = 100
+text = "Zoom Out"
+
+[node name="map" type="Node2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="stat_extractor" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="one_pix" type="Sprite" parent="."]
+modulate = Color( 0.0117647, 0.0117647, 0.0117647, 1 )
+scale = Vector2( 800, 600 )
+z_index = -1000
+texture = ExtResource( 8 )

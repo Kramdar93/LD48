@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/infoscreens/loaderButton.gd" type="Script" id=1]
 [ext_resource path="res://one_pix.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://icons.png" type="Texture" id=4]
 [ext_resource path="res://scenes/misc_controls.gd" type="Script" id=5]
 [ext_resource path="res://scenes/infoscreens/simple_music.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/infoscreens/quit.gd" type="Script" id=7]
 
 [node name="Game" type="Node2D"]
 position = Vector2( 400, 300 )
@@ -75,5 +76,38 @@ position = Vector2( 23.5, 30.9999 )
 scale = Vector2( 3, 3 )
 z_index = 1
 text = "RESTART?"
+
+[node name="stats" type="Button" parent="."]
+margin_left = -339.0
+margin_top = 206.0
+margin_right = -164.0
+margin_bottom = 268.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene_to_load = "res://scenes/infoscreens/stats.tscn"
+
+[node name="custom_text5" parent="stats" instance=ExtResource( 3 )]
+position = Vector2( 23.5, 30.9999 )
+scale = Vector2( 3, 3 )
+z_index = 1
+text = "STATS"
+
+[node name="quit" type="Button" parent="."]
+margin_left = 176.0
+margin_top = 206.0
+margin_right = 351.0
+margin_bottom = 268.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="custom_text5" parent="quit" instance=ExtResource( 3 )]
+position = Vector2( 23.5, 30.9999 )
+scale = Vector2( 3, 3 )
+z_index = 1
+text = "QUIT"
 
 [node name="Static" parent="." instance=ExtResource( 6 )]

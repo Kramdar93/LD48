@@ -63,6 +63,6 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 1: # left click
 			build()
-		else: # idc
+		elif event.button_index == 2: # right click
 			cancel()
 

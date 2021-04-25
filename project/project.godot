@@ -22,6 +22,10 @@ boot_splash/use_filter=false
 config/icon="res://pinkynail.png"
 config/windows_native_icon="res://pinkynail.ico"
 
+[autoload]
+
+Stats="*res://scenes/singletons/stats.tscn"
+
 [display]
 
 window/size/width=800

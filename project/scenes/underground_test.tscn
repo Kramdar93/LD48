@@ -77,7 +77,7 @@ text = "Credit"
 [node name="custom_text7" parent="counts" instance=ExtResource( 5 )]
 position = Vector2( 42, 162 )
 z_index = 1000
-text = "DEPTH"
+text = "Depth"
 
 [node name="playerBase" type="Node2D" parent="."]
 

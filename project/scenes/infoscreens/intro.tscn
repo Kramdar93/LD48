@@ -29,12 +29,12 @@ line_length = 80
 text = "D.E.E.P. provides unheardof opportunity for cooperative financial restructuring  to alleviate legal responsibilities of consumers as well as profit loss of       producers. Participants in D.E.E.P. see a median sixty-three percent increase in post-debt lifestyle enjoyability* over the alternative complete forfeture and    seizure of property, identity and protein-rich biomass, while enjoying an averagetwenty-four percent longer lifespan to boot! Thank you for taking the first stepsto joining us in clearing your debt!"
 
 [node name="custom_text7" parent="." instance=ExtResource( 3 )]
-position = Vector2( -352, -118 )
+position = Vector2( -352, -123 )
 line_length = 80
-text = "When you once again reach a positive credit balance by mining out the natural    resources of WASP-143 d, you will be permitted to rejoin our galactic society    with full restoration of sentient rights!"
+text = "When you once again reach a positive credit balance by mining out the natural    resources of WASP-143 d, you will be permitted to rejoin our galactic society    with full restoration of sentient rights! Don't worry about running out of creditwhile you work, we know you'll be good for it.... eventually..."
 
 [node name="custom_text3" parent="." instance=ExtResource( 3 )]
-position = Vector2( -352, -54 )
+position = Vector2( -352, -49 )
 line_length = 80
 text = "Please take the time to read our full Terms and Conditions, Privacy Policy, EULA,Disclosure of Financial Institution Involvement, Disclosure of Political         Engagement, Archival Permission for Social Media Content Created During the      Burning Decade ('20s), Bio-quantum Information Release Agreement and Janet's     Newsletter for May. She works very hard on those! These documents are available  on our secure website and are now available in every language in the Inner Arm   Systems, conveniently interleaved for effortless crosschecking!"
 

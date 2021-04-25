@@ -16,6 +16,9 @@ var oldOxygen = oxygen_budget
 var oldMinerals = mineral_budget
 var oldCredits = credit_budget
 
+var total_earned_credits = 0
+var total_spent_credits = 0
+
 const in_the_red = Color(1.0,0.0,0.0)
 
 # Called when the node enters the scene tree for the first time.
@@ -108,6 +111,10 @@ func submit_trade(dFood,dWater,dOxygen,dMinerals,dCredit):
 	oxygen_budget += dOxygen
 	mineral_budget += dMinerals
 	credit_budget += dCredit
+	if dCredit > 0:
+		total_earned_credits += dCredit
+	elif dCredit < 0:
+		total_spent_credits -= dCredit
 	return true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -142,6 +149,7 @@ func _process(delta):
 		update_credits(false)
 		print("credits: " + str(credit_budget) + " (" + str(credit_budget - oldCredits) + ")")
 		if credit_budget >= 0:
+			pack_stats()
 			get_tree().change_scene("res://scenes/infoscreens/winner.tscn")
 	oldFood = food_budget
 	oldWater = water_budget
@@ -170,3 +178,31 @@ func create_building(originBuilding, position):
 	tunnel.global_position = Vector2.ZERO
 	tunnel.points[0] = originBuilding.global_position
 	tunnel.points[1] = newBuilding.global_position
+
+func pack_stats():
+	var statholder = get_node_or_null("/root/Stats")
+	if statholder != null:
+		statholder.real_time = get_node("/root/Game/Static/Clock").total_time
+		statholder.seconds_in_day = get_node("/root/Game/Static/Clock").seconds_in_day
+		statholder.credits_spent = total_spent_credits
+		statholder.credits_earned = total_earned_credits
+		for sibling in get_parent().get_children():
+			if sibling is Node2D or sibling is Line2D:
+				# sanitize building
+				var build_menu = sibling.get_node_or_null("build_menu")
+				if build_menu != null:
+					build_menu.remove()
+				var button = sibling.get_node_or_null("Button")
+				if button != null:
+					sibling.remove_child(button)
+					button.queue_free()
+				var driver = sibling.get_node_or_null("driver")
+				if driver != null:
+					sibling.remove_child(driver)
+					driver.queue_free()
+				if "sticky_y" in sibling:
+					sibling.sticky_y = false
+					sibling.position.y = sibling.old_y
+				sibling.get_parent().remove_child(sibling)
+				statholder.add_child(sibling)
+	

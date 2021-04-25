@@ -65,6 +65,8 @@ func check_timeouts():
 	if len(active_timers) > 0:
 		# just do the first one idc
 		var type = active_timers[0]
+		if len(known_bases) > 0:
+			known_bases[0].pack_stats()
 		if type == "oxygen":
 			get_tree().change_scene("res://scenes/infoscreens/oxy_go.tscn")
 		elif type == "water":

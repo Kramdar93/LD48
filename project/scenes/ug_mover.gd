@@ -33,4 +33,6 @@ func _input(event):
 			position.y = 0
 	if event.is_action("ui_page_down"):
 		position.y -= 120
-	get_node("counts/depth").update_text(str(int(-position.y / 600)+1) + " Km", null)
+	var depth_counter = get_node_or_null("counts/depth")
+	if depth_counter != null:
+		depth_counter.update_text(str(int(-position.y / 600)+1) + " Km", null)
