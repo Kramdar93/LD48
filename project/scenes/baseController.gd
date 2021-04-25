@@ -27,6 +27,7 @@ func _ready():
 	update_credits(true)
 	if get_drivers() == null:
 		print("no building drivers!")
+	get_node("/root/Game/Static/Clock").registerBase(get_node("."))
 
 func format_num(n):
 	var result = ""

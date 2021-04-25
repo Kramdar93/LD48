@@ -15,15 +15,20 @@ scale = Vector2( 800, 600 )
 texture = ExtResource( 2 )
 
 [node name="custom_text" parent="." instance=ExtResource( 3 )]
-position = Vector2( -352.5, -249 )
+position = Vector2( -352.5, -276 )
 scale = Vector2( 1.25, 1.25 )
 z_index = 1
 text = "Welcome to D.E.E.P., the Debtors' Encumbrance Equalization Program!"
 
 [node name="custom_text2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -352, -196 )
+position = Vector2( -352.5, -241 )
 line_length = 80
 text = "D.E.E.P. provides unheardof opportunity for cooperative financial restructuring  to alleviate legal responsibilities of consumers as well as profit loss of       producers. Participants in D.E.E.P. see a median sixty-three percent increase in post-debt lifestyle enjoyability* over the alternative complete forfeture and    seizure of property, identity and protein-rich biomass, while enjoying an averagetwenty-four percent longer lifespan to boot! Thank you for taking the first stepsto joining us in clearing your debt!"
+
+[node name="custom_text7" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352, -118 )
+line_length = 80
+text = "When you once again reach a positive credit balance by mining out the natural    resources of WASP-143 d, you will be permitted to rejoin our galactic society    with full restoration of sentient rights!"
 
 [node name="custom_text3" parent="." instance=ExtResource( 3 )]
 position = Vector2( -352, -54 )
