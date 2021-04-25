@@ -13,7 +13,7 @@ var food_store = 0.0
 var mineral_store = 0.0
 var credit_store = 0.0
 
-var need_sensing = false
+var need_sensing = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
