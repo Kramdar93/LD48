@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/ug_mover.gd" type="Script" id=1]
 [ext_resource path="res://scenes/buildings/building.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/buildings/tunnel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/font/custom_text.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/terrain/resource.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/resource_generator.gd" type="Script" id=7]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -90,3 +91,9 @@ sticky_y = true
 [node name="resource" parent="." instance=ExtResource( 6 )]
 position = Vector2( 193, 399 )
 type = "oxygen"
+
+[node name="resource_generator" type="Node2D" parent="."]
+script = ExtResource( 7 )
+base_resource = ExtResource( 6 )
+
+[node name="resources" type="Node2D" parent="."]
