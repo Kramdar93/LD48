@@ -59,7 +59,7 @@ func update_clocks():
 
 func tick_bases():
 	for base in known_bases:
-		base.submit_trade(-1,-1,-1,0,0)
+		base.submit_trade(-1,-1,-1,-1,0)
 		
 func check_timeouts():
 	if len(active_timers) > 0:
@@ -73,6 +73,8 @@ func check_timeouts():
 			get_tree().change_scene("res://scenes/infoscreens/water_go.tscn")
 		elif type == "food":
 			get_tree().change_scene("res://scenes/infoscreens/food_go.tscn")
+		elif type == "mineral":
+			get_tree().change_scene("res://scenes/infoscreens/mineral_go.tscn")
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

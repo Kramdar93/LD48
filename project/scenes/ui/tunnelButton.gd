@@ -3,6 +3,7 @@ extends Button
 
 export (PackedScene) var tunnelBlueprint
 
+const tunnelCost = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +16,7 @@ func _ready():
 #	pass
 
 func _button_pressed():
-	var result = get_parent().get_parent().get_parent().get_node("baseController").submit_trade(0,0,0,-1,0)
+	var result = get_parent().get_parent().get_parent().get_node("baseController").submit_trade(0,0,0,0,-tunnelCost)
 	if result:
 		var newTunnel = tunnelBlueprint.instance()
 		newTunnel.get_node("Area2D").origin = get_parent().get_parent()

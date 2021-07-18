@@ -85,6 +85,9 @@ func update_minerals(force):
 	var mod = null
 	if mineral_budget <= 0:
 		mod = in_the_red
+		get_node("/root/Game/Static/Clock").showCountdown("mineral")
+	else:
+		get_node("/root/Game/Static/Clock").clearTimer("mineral")
 	if force:
 		get_parent().get_parent().get_node("counts/minerals").force_update(format_num(mineral_budget),mod)
 	else:
