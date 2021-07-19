@@ -55,6 +55,18 @@ scale = Vector2( 0.75, 0.75 )
 line_length = 80
 text = "*Lifestyle enjoyability pertains to a relative and subjective lack of physical   pain, debilitating or worse, excluding any resulting from injuries aquired duringyour time in the D.E.E.P. or pre-existing conditions."
 
+[node name="custom_text8" parent="." instance=ExtResource( 3 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( -352.5, 150 )
+scale = Vector2( 0.75, 1 )
+line_length = 80
+text = "Debt of $1,000,000 (Galactic Credits)"
+
+[node name="custom_text9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 146.5, 151.5 )
+line_length = 80
+text = "X"
+
 [node name="start" type="Button" parent="."]
 margin_left = -103.0
 margin_top = 119.0
@@ -74,3 +86,8 @@ z_index = 1
 text = "I Agree"
 
 [node name="Static" parent="." instance=ExtResource( 5 )]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 244, 165 )
+scale = Vector2( 200, 1 )
+texture = ExtResource( 2 )
