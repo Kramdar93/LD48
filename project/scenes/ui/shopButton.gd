@@ -3,14 +3,14 @@ extends Button
 export var type = "buy"
 export var commodity = "water"
 
-var waterBuy = 50
-var waterSell = 40
-var oxygenBuy = 20
-var oxygenSell = 15
-var foodBuy = 100
-var foodSell = 65
-var mineralBuy = 1000
-var mineralSell = 800
+var waterBuy = 750
+var waterSell = 550
+var oxygenBuy = 500
+var oxygenSell = 400
+var foodBuy = 1000
+var foodSell = 650
+var mineralBuy = 2500
+var mineralSell = 2000
 
 var delay = 0.5
 var rate = 0.05
