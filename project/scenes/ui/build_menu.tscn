@@ -23,6 +23,9 @@ __meta__ = {
 }
 tunnelBlueprint = ExtResource( 3 )
 
+[node name="cost" parent="tunnel" instance=ExtResource( 5 )]
+position = Vector2( 6, 29 )
+
 [node name="custom_text" parent="tunnel" instance=ExtResource( 5 )]
 position = Vector2( 6, 10 )
 text = "TUNNEL"
@@ -41,6 +44,9 @@ __meta__ = {
 type = "extractor"
 credit_cost = 200
 mineral_cost = 0
+
+[node name="cost" parent="extractor" instance=ExtResource( 5 )]
+position = Vector2( 7, -11 )
 
 [node name="custom_text2" parent="extractor" instance=ExtResource( 5 )]
 position = Vector2( 7, 9.5 )
@@ -61,6 +67,9 @@ type = "sensor"
 credit_cost = 200
 mineral_cost = 0
 
+[node name="cost" parent="sensor" instance=ExtResource( 5 )]
+position = Vector2( 6, 30 )
+
 [node name="custom_text3" parent="sensor" instance=ExtResource( 5 )]
 position = Vector2( 6, 10 )
 text = "SENSOR"
@@ -79,6 +88,9 @@ __meta__ = {
 type = "fortification"
 credit_cost = 200
 mineral_cost = 0
+
+[node name="cost" parent="fortify" instance=ExtResource( 5 )]
+position = Vector2( 5.5, 29.5 )
 
 [node name="custom_text4" parent="fortify" instance=ExtResource( 5 )]
 position = Vector2( 5.5, 10 )

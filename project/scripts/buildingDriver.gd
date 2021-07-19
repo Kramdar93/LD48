@@ -25,7 +25,7 @@ func _ready():
 #	pass
 
 func extract_init():
-	var overlaps = get_parent().get_node("physicalArea").get_overlapping_areas() # does not update immediately, but player cannot immediately build improved buildings.
+	var overlaps = get_parent().get_node("sensingArea").get_overlapping_areas() # does not update immediately, but player cannot immediately build improved buildings.
 	for area in overlaps:
 		var resource = area.get_parent()
 		if resource.has_method("get_type"):

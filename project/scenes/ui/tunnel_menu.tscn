@@ -25,3 +25,6 @@ tunnelBlueprint = ExtResource( 3 )
 [node name="custom_text" parent="tunnel" instance=ExtResource( 5 )]
 position = Vector2( 7, 10 )
 text = "TUNNEL"
+
+[node name="cost" parent="tunnel" instance=ExtResource( 5 )]
+position = Vector2( 7, 30 )

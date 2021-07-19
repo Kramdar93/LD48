@@ -20,6 +20,8 @@ var timer = delay
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect("button_down", self, "_button_pressed")
+	connect("mouse_entered", self, "_mouse_enter")
+	connect("mouse_exited", self, "_mouse_exit")
 
 func handle_input():
 	var baseController = get_parent().get_parent().get_parent().get_node("baseController")
@@ -75,6 +77,33 @@ func _process(delta):
 		timer = delay
 	elif pressed and timer > 0:
 		timer -= delta
+	
+	
+func get_cost():
+	if type == "buy":
+		if commodity == "water":
+			return waterBuy
+		elif commodity == "food":
+			return foodBuy
+		elif commodity == "oxygen":
+			return oxygenBuy
+		elif commodity == "mineral":
+			return mineralBuy
+	else:
+		if commodity == "water":
+			return waterSell
+		elif commodity == "food":
+			return foodSell
+		elif commodity == "oxygen":
+			return oxygenSell
+		elif commodity == "mineral":
+			return mineralSell
+		
+func _mouse_enter():
+	get_node("cost").force_update("$"+str(get_cost()),null)
+	
+func _mouse_exit():
+	get_node("cost").force_update("",null)
 
 
 

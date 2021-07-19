@@ -53,6 +53,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="cost" parent="buyWater" instance=ExtResource( 5 )]
+position = Vector2( 5, -12.5 )
+
 [node name="custom_text2" parent="buyWater" instance=ExtResource( 5 )]
 position = Vector2( 5, 10 )
 text = "WATER"
@@ -69,6 +72,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 type = "sell"
+
+[node name="cost" parent="sellWater" instance=ExtResource( 5 )]
+position = Vector2( 6.5, 30 )
 
 [node name="custom_text3" parent="sellWater" instance=ExtResource( 5 )]
 position = Vector2( 6.5, 9 )
@@ -88,6 +94,9 @@ __meta__ = {
 }
 commodity = "food"
 
+[node name="cost" parent="buyFood" instance=ExtResource( 5 )]
+position = Vector2( 12, -12 )
+
 [node name="custom_text2" parent="buyFood" instance=ExtResource( 5 )]
 position = Vector2( 12, 10 )
 text = "FOOD"
@@ -105,6 +114,9 @@ __meta__ = {
 }
 type = "sell"
 commodity = "food"
+
+[node name="cost" parent="sellFood" instance=ExtResource( 5 )]
+position = Vector2( 11, 30 )
 
 [node name="custom_text3" parent="sellFood" instance=ExtResource( 5 )]
 position = Vector2( 11, 10 )
@@ -128,6 +140,9 @@ commodity = "mineral"
 position = Vector2( 7, 9.5 )
 text = "MINERAL"
 
+[node name="cost" parent="buyMineral" instance=ExtResource( 5 )]
+position = Vector2( 7, -12 )
+
 [node name="sellMineral" type="Button" parent="."]
 margin_left = 60.0
 margin_top = -60.0
@@ -145,6 +160,9 @@ commodity = "mineral"
 [node name="custom_text3" parent="sellMineral" instance=ExtResource( 5 )]
 position = Vector2( 6.5, 9 )
 text = "MINERAL"
+
+[node name="cost" parent="sellMineral" instance=ExtResource( 5 )]
+position = Vector2( 6.5, 30 )
 
 [node name="buyOxy" type="Button" parent="."]
 margin_left = -113.0
@@ -164,6 +182,9 @@ commodity = "oxygen"
 position = Vector2( 18, 10.5 )
 text = "O2"
 
+[node name="cost" parent="buyOxy" instance=ExtResource( 5 )]
+position = Vector2( 5.5, -12.5 )
+
 [node name="sellOxy" type="Button" parent="."]
 margin_left = -116.0
 margin_top = -60.0
@@ -181,3 +202,6 @@ commodity = "oxygen"
 [node name="custom_text3" parent="sellOxy" instance=ExtResource( 5 )]
 position = Vector2( 20.5, 9.5 )
 text = "O2"
+
+[node name="cost" parent="sellOxy" instance=ExtResource( 5 )]
+position = Vector2( 8.5, 30 )

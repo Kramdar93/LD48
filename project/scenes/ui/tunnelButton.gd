@@ -9,6 +9,8 @@ const tunnelCost = 100
 func _ready():
 	pressed = true
 	connect("pressed", self, "_button_pressed")
+	connect("mouse_entered", self, "_mouse_enter")
+	connect("mouse_exited", self, "_mouse_exit")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,3 +27,9 @@ func _button_pressed():
 	else:
 		get_node("/root/Game/Static/audio").play_sfx("cancel")
 	get_parent().remove()
+
+func _mouse_enter():
+	get_node("cost").force_update("$"+str(tunnelCost),null)
+	
+func _mouse_exit():
+	get_node("cost").force_update("",null)

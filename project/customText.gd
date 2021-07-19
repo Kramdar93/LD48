@@ -29,6 +29,8 @@ func force_update(new_text, modulate):
 	var y = 0
 	text = new_text
 	clear_text()
+	if text == null: 
+		return
 	for letter in text:
 		if letter != ' ':
 			var new_letter = letter_obj.instance()
