@@ -60,5 +60,5 @@ shape = SubResource( 1 )
 
 [node name="light" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.184314 )
-scale = Vector2( 0.187, 0.187 )
+scale = Vector2( 0.19, 0.19 )
 texture = ExtResource( 8 )
