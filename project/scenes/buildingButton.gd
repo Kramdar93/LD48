@@ -19,8 +19,14 @@ func _ready():
 	connect("pressed", self, "_button_pressed")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	time_since_created += delta
+func _process(delta):
+	#time_since_created += delta
+	if(get_parent().get_node("driver").type == "port"):
+		get_parent().global_position.x = get_node("/root/Game/base_deco").global_position.x
+		if(get_parent().global_position.x > 650):
+			get_parent().global_position.x = 650
+		elif(get_parent().global_position.x < 150):
+			get_parent().global_position.x = 150
 
 func open_build_menu():
 	var build_menu = build_menu_scene.instance()
