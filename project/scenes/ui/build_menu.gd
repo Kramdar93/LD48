@@ -20,3 +20,6 @@ func remove():
 	get_parent().remove_child(get_node("."))
 	queue_free()
 	
+# uhh
+func is_build_menu():
+	return true

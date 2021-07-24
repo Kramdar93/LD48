@@ -103,6 +103,10 @@ func kill():
 		var resource = area.get_parent()
 		if resource.has_method("get_type"):
 			resource.z_index = -1000
+	# close any buildmenu
+	for child in get_parent().get_children():
+		if child.has_method("is_build_menu"):
+			child.remove()
 	# handle hacky stuff
 	if type == "command":
 		get_parent().get_parent().find_node("tunnel").default_color = Color(1,0,0)

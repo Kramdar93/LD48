@@ -6,6 +6,8 @@ export (PackedScene) var base_enemy
 
 var generated_chunks = {}
 
+var debug_enabled = true
+
 const height = 600
 const width = 800
 
@@ -52,14 +54,18 @@ func generate_chunk(x,y):
 	var endY = startY+height
 	var num_deposits = get_bounded_randi(get_min_enemies_by_depth(y),get_max_enemies_by_depth(y))
 	for i in range(num_deposits):
-		var type = get_random_type_by_depth(y)
-		var newX = get_bounded_randi(startX,endX)
-		var newY = get_bounded_randi(startY,endY)
-		var new_enemy = base_enemy.instance()
-		new_enemy.position.x = newX
-		new_enemy.position.y = newY
-		new_enemy.type = type
-		get_parent().get_node("enemies").add_child(new_enemy)
+		gen_enemy(x,y,startX,startY,endX,endY)
+
+func gen_enemy(x,y,startX,startY,endX,endY):
+	var type = get_random_type_by_depth(y)
+	var newX = get_bounded_randi(startX,endX)
+	var newY = get_bounded_randi(startY,endY)
+	var new_enemy = base_enemy.instance()
+	new_enemy.position.x = newX
+	new_enemy.position.y = newY
+	new_enemy.type = type
+	get_parent().get_node("enemies").add_child(new_enemy)
+	
 
 func _process(delta):
 	# these are negative since the ground is 'moving' right when the camera pans left get it?
@@ -72,3 +78,8 @@ func _process(delta):
 				generate_chunk(i,j)
 				generated_chunks[chunkKey] = true
 				print("generated chunk " + chunkKey)
+
+
+func _input(event):
+	if debug_enabled and event.is_action_pressed("ui_accept"):
+		gen_enemy(0,0,-400,-300,400,300)
