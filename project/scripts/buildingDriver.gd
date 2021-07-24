@@ -17,6 +17,8 @@ var credit_store = 0.0
 var sensing_tick_delay = 0.1
 var sensing_tick_timer = 0
 
+var active_blueprint = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -107,6 +109,9 @@ func kill():
 	for child in get_parent().get_children():
 		if child.has_method("is_build_menu"):
 			child.remove()
+	# remove any blueprint that is coming from here
+	if active_blueprint != null:
+		active_blueprint.get_node("Area2D").cancel()
 	# handle hacky stuff
 	if type == "command":
 		get_parent().get_parent().find_node("tunnel").default_color = Color(1,0,0)

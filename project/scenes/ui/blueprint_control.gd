@@ -57,6 +57,7 @@ func build():
 	else:
 		get_node("/root/Game/Static/audio").play_sfx("cancel")
 		cancel()
+	origin.get_node("driver").active_blueprint = null
 	
 func cancel():
 	var baseController = get_parent().get_parent().get_node("baseController")
@@ -65,6 +66,7 @@ func cancel():
 	else:
 		baseController.submit_trade(0,0,0,0,100)
 	get_parent().queue_free()
+	origin.get_node("driver").active_blueprint = null
 
 func _input(event):
 	if event is InputEventMouseMotion:

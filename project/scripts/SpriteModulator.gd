@@ -45,7 +45,7 @@ func set_child_color():
 			prev_index = (i-1) % colors.size()
 			if time >= real_segments[prev_index] and time <= real_segments[i]:
 				color_now = colors[prev_index].linear_interpolate(colors[i],get_slerp(real_segments[prev_index], time, real_segments[i]))
-		for child in get_parent().find_node("sprites").get_children():
+		for child in get_parent().get_node("sprites").get_children():
 			child.modulate = color_now
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

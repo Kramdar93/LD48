@@ -22,6 +22,7 @@ func _button_pressed():
 	if result:
 		var newTunnel = tunnelBlueprint.instance()
 		newTunnel.get_node("Area2D").origin = get_parent().get_parent()
+		get_parent().get_parent().get_node("driver").active_blueprint = newTunnel
 		get_parent().get_parent().get_parent().add_child(newTunnel)
 		get_node("/root/Game/Static/audio").play_sfx("get")
 	else:

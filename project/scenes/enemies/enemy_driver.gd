@@ -56,7 +56,7 @@ func _physics_process(delta):
 func handle_attack(building):
 	if(building.type == "fortification"):
 		alive = false
-		find_node("Sprite").modulate = Color(1,0,0)
+		get_node("Sprite").modulate = Color(1,0,0)
 	else:
 		building.kill()
 	target = null

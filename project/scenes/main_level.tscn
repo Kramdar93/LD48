@@ -173,7 +173,7 @@ density = 7
 item_to_generate = ExtResource( 2 )
 
 [node name="plaxGenerator2" type="Node2D" parent="."]
-position = Vector2( 400, 65 )
+position = Vector2( 400, 70 )
 z_index = 102
 script = ExtResource( 3 )
 paralax_factor = 6
@@ -352,13 +352,12 @@ z_index = 100
 [node name="AnimatedSprite" type="AnimatedSprite" parent="sky"]
 position = Vector2( -3.05176e-05, 0 )
 frames = SubResource( 5 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="sky"]
 position = Vector2( 0, -300 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="sky_mover" type="Node" parent="sky"]
@@ -385,7 +384,7 @@ position = Vector2( 0, 88 )
 scale = Vector2( 0.125, 0.125 )
 z_index = 200
 frames = SubResource( 22 )
-frame = 4
+frame = 15
 playing = true
 
 [node name="sprite_mod" type="Node" parent="base_deco"]

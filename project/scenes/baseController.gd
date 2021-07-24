@@ -181,13 +181,13 @@ func create_building(originBuilding, position):
 	n_driver.parent_building = originBuilding
 	
 	var tunnelStart = tunnelScene.instance()
-	o_driver.get_parent().find_node("edges").add_child(tunnelStart)
+	o_driver.get_parent().get_node("edges").add_child(tunnelStart)
 	tunnelStart.global_position = Vector2.ZERO
 	tunnelStart.points[0] = originBuilding.global_position
 	tunnelStart.points[1] = (newBuilding.global_position + originBuilding.global_position) / 2
 	
 	var tunnelEnd = tunnelScene.instance()
-	n_driver.get_parent().find_node("edges").add_child(tunnelEnd)
+	n_driver.get_parent().get_node("edges").add_child(tunnelEnd)
 	tunnelEnd.global_position = Vector2.ZERO
 	tunnelEnd.points[0] = (newBuilding.global_position + originBuilding.global_position) / 2
 	tunnelEnd.points[1] = newBuilding.global_position
@@ -223,7 +223,7 @@ func pack_stats():
 				sibling.get_parent().remove_child(sibling)
 				statholder.add_child(sibling)
 				# pick out edges
-				var edges = sibling.find_node("edges")
+				var edges = sibling.get_node("edges")
 				if edges != null:
 					for edge in edges.get_children():
 						var initpos = edge.global_position
