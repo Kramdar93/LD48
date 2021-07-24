@@ -213,9 +213,21 @@ func pack_stats():
 				if driver != null:
 					sibling.remove_child(driver)
 					driver.queue_free()
+				var light = sibling.get_node_or_null("light")
+				if light != null:
+					sibling.remove_child(light)
+					light.queue_free()
 				if "sticky_y" in sibling and sibling.sticky_y:
 					sibling.sticky_y = false
 					sibling.position.y = sibling.old_y
 				sibling.get_parent().remove_child(sibling)
 				statholder.add_child(sibling)
+				# pick out edges
+				var edges = sibling.find_node("edges")
+				if edges != null:
+					for edge in edges.get_children():
+						var initpos = edge.global_position
+						edges.remove_child(edge)
+						statholder.add_child(edge)
+						edge.global_position = initpos
 	

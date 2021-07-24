@@ -88,13 +88,12 @@ script = ExtResource( 3 )
 baseBuilding = ExtResource( 2 )
 tunnelScene = ExtResource( 4 )
 
+[node name="tunnel" parent="playerBase" instance=ExtResource( 4 )]
+points = PoolVector2Array( 400, 75, 400, 300 )
+
 [node name="command" parent="playerBase" instance=ExtResource( 2 )]
 position = Vector2( 400, 300 )
 type = "command"
-
-[node name="tunnel" parent="playerBase/command" instance=ExtResource( 4 )]
-position = Vector2( -400, -300 )
-points = PoolVector2Array( 400, 75, 400, 300 )
 
 [node name="dropoff" parent="playerBase" instance=ExtResource( 2 )]
 position = Vector2( 400, 75 )

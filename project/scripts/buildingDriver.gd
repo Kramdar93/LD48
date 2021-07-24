@@ -105,5 +105,5 @@ func kill():
 			resource.z_index = -1000
 	# handle hacky stuff
 	if type == "command":
-		get_parent().find_node("tunnel").default_color = Color(1,0,0)
+		get_parent().get_parent().find_node("tunnel").default_color = Color(1,0,0)
 		get_node("/root/Game/Static/Clock").end_game("dead")
