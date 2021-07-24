@@ -19,6 +19,13 @@ var oldCredits = credit_budget
 var total_earned_credits = 0
 var total_spent_credits = 0
 
+var total_oxy_mined = 0
+var total_water_mined = 0
+var total_food_mined = 0
+var total_mineral_mined = 0
+
+var total_enemies_killed = 0
+
 const in_the_red = Color(1.0,0.0,0.0)
 
 # Called when the node enters the scene tree for the first time.
@@ -102,6 +109,8 @@ func update_credits(force):
 	else:
 		get_parent().get_parent().get_node("counts/credit").update_text(format_num(credit_budget),mod)
 	
+func log_kill():
+	total_enemies_killed += 1
 
 func submit_trade(dFood,dWater,dOxygen,dMinerals,dCredit):
 	if food_budget + dFood < 0:
@@ -133,6 +142,12 @@ func _process(delta):
 		oxygen_budget += driver.oxygen_store
 		mineral_budget += driver.mineral_store
 		credit_budget += driver.credit_store
+		
+		total_food_mined += driver.food_store
+		total_water_mined += driver.water_store
+		total_oxy_mined += driver.oxygen_store
+		total_mineral_mined += driver.mineral_store
+		
 		# one time use
 		driver.food_store = 0.0
 		driver.water_store = 0.0
@@ -199,6 +214,14 @@ func pack_stats():
 		statholder.seconds_in_day = get_node("/root/Game/Static/Clock").seconds_in_day
 		statholder.credits_spent = total_spent_credits
 		statholder.credits_earned = total_earned_credits
+		
+		statholder.total_food_mined = total_food_mined
+		statholder.total_water_mined = total_water_mined
+		statholder.total_oxy_mined = total_oxy_mined
+		statholder.total_mineral_mined = total_mineral_mined
+		
+		statholder.total_enemies_killed = total_enemies_killed
+		
 		for sibling in get_parent().get_children():
 			if sibling is Node2D or sibling is Line2D:
 				# sanitize building

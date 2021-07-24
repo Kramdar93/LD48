@@ -31,22 +31,52 @@ line_length = 80
 text = "Real Time"
 
 [node name="custom_text3" parent="." instance=ExtResource( 3 )]
-position = Vector2( -352, -128 )
+position = Vector2( -352, -131 )
 z_index = 100
 line_length = 80
 text = "Game Time"
 
 [node name="custom_text4" parent="." instance=ExtResource( 3 )]
-position = Vector2( -352.5, -78 )
+position = Vector2( -352.5, -91 )
 z_index = 100
 line_length = 80
 text = "Credits Spent"
 
 [node name="custom_text5" parent="." instance=ExtResource( 3 )]
-position = Vector2( -352.5, -31.5 )
+position = Vector2( -352.5, -51.5 )
 z_index = 100
 line_length = 80
 text = "Credits Earned"
+
+[node name="custom_text6" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352.5, -11.5 )
+z_index = 100
+line_length = 80
+text = "Monsters killed"
+
+[node name="custom_text7" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352.5, 29.5 )
+z_index = 100
+line_length = 80
+text = "Oxygen mined"
+
+[node name="custom_text8" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352.5, 68.5 )
+z_index = 100
+line_length = 80
+text = "Water mined"
+
+[node name="custom_text9" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352.5, 108.5 )
+z_index = 100
+line_length = 80
+text = "Food mined"
+
+[node name="custom_text10" parent="." instance=ExtResource( 3 )]
+position = Vector2( -352.5, 148.5 )
+z_index = 100
+line_length = 80
+text = "Minerals mined"
 
 [node name="time" parent="." instance=ExtResource( 3 )]
 position = Vector2( -205.5, -171 )
@@ -55,17 +85,42 @@ line_length = 80
 text = "Oh no, it looks like you ran out of Food!"
 
 [node name="game_time" parent="." instance=ExtResource( 3 )]
-position = Vector2( -205.5, -128 )
+position = Vector2( -205.5, -131 )
 z_index = 100
 line_length = 80
 
 [node name="credits_spent" parent="." instance=ExtResource( 3 )]
-position = Vector2( -206, -78 )
+position = Vector2( -206, -91 )
 z_index = 100
 line_length = 80
 
 [node name="credits_earned" parent="." instance=ExtResource( 3 )]
-position = Vector2( -206, -31.5 )
+position = Vector2( -206, -51.5 )
+z_index = 100
+line_length = 80
+
+[node name="monsters_killed" parent="." instance=ExtResource( 3 )]
+position = Vector2( -206, -11.5 )
+z_index = 100
+line_length = 80
+
+[node name="oxygen_mined" parent="." instance=ExtResource( 3 )]
+position = Vector2( -206, 29.5 )
+z_index = 100
+line_length = 80
+
+[node name="water_mined" parent="." instance=ExtResource( 3 )]
+position = Vector2( -206, 68.5 )
+z_index = 100
+line_length = 80
+
+[node name="food_mined" parent="." instance=ExtResource( 3 )]
+position = Vector2( -206, 108.5 )
+z_index = 100
+line_length = 80
+
+[node name="minerals_mined" parent="." instance=ExtResource( 3 )]
+position = Vector2( -206, 148.5 )
 z_index = 100
 line_length = 80
 

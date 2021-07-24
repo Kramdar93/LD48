@@ -57,6 +57,7 @@ func handle_attack(building):
 	if(building.type == "fortification"):
 		alive = false
 		get_node("Sprite").modulate = Color(1,0,0)
+		get_node("/root/Game/playerBase/playerBase/baseController").log_kill()
 	else:
 		building.kill()
 	target = null

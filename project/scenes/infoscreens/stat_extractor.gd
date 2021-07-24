@@ -33,6 +33,11 @@ func _ready():
 		get_node("/root/Game/game_time").update_text(convert_time(stats.real_time,stats.seconds_in_day), null)
 		get_node("/root/Game/credits_spent").update_text(str(stats.credits_spent), null)
 		get_node("/root/Game/credits_earned").update_text(str(stats.credits_earned), null)
+		get_node("/root/Game/monsters_killed").update_text(str(stats.total_enemies_killed), null)
+		get_node("/root/Game/oxygen_mined").update_text(str(stats.total_oxy_mined), null)
+		get_node("/root/Game/water_mined").update_text(str(stats.total_water_mined), null)
+		get_node("/root/Game/food_mined").update_text(str(stats.total_food_mined), null)
+		get_node("/root/Game/minerals_mined").update_text(str(stats.total_mineral_mined), null)
 		for child in stats.get_children():
 			stats.remove_child(child)
 			get_node("/root/Game/map").add_child(child)
