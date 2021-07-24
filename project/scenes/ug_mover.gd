@@ -29,6 +29,7 @@ func _input(event):
 	if event.is_action("ui_page_up"):
 		if position.y + 120 <= 0:
 			position.y += 120
+			position.y += 120
 		else:
 			position.y = 0
 	if event.is_action("ui_page_down"):

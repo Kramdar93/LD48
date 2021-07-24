@@ -32,8 +32,30 @@ build_menu_scene = ExtResource( 2 )
 tunnel_menu_scene = ExtResource( 5 )
 shop_menu_scene = ExtResource( 7 )
 
-[node name="driver" type="Node" parent="."]
+[node name="driver" type="Node2D" parent="."]
 script = ExtResource( 4 )
+
+[node name="physicalArea" type="Area2D" parent="driver"]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="driver/physicalArea"]
+scale = Vector2( 2, 2 )
+shape = SubResource( 1 )
+
+[node name="attackabeArea" type="Area2D" parent="driver"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="driver/attackabeArea"]
+shape = SubResource( 1 )
+
+[node name="sensingArea" type="Area2D" parent="driver"]
+scale = Vector2( 1.5, 1.5 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="driver/sensingArea"]
+scale = Vector2( 2, 2 )
+shape = SubResource( 1 )
 
 [node name="sprite" type="Sprite" parent="."]
 scale = Vector2( 0.125, 0.125 )
@@ -41,24 +63,9 @@ texture = ExtResource( 1 )
 vframes = 4
 hframes = 4
 
-[node name="physicalArea" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="physicalArea"]
-scale = Vector2( 2, 2 )
-shape = SubResource( 1 )
-
-[node name="sensingArea" type="Area2D" parent="."]
-scale = Vector2( 1.5, 1.5 )
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sensingArea"]
-scale = Vector2( 2, 2 )
-shape = SubResource( 1 )
-
 [node name="light" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.184314 )
 scale = Vector2( 0.19, 0.19 )
 texture = ExtResource( 8 )
+
+[node name="edges" type="Node2D" parent="."]

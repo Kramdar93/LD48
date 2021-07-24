@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/ug_mover.gd" type="Script" id=1]
 [ext_resource path="res://scenes/buildings/building.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://scenes/terrain/resource.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/resource_generator.gd" type="Script" id=7]
 [ext_resource path="res://scenes/show_all_resources.gd" type="Script" id=8]
+[ext_resource path="res://scenes/enemies/enemy_generator.gd" type="Script" id=9]
+[ext_resource path="res://scenes/enemies/enemy.tscn" type="PackedScene" id=10]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -86,12 +88,13 @@ script = ExtResource( 3 )
 baseBuilding = ExtResource( 2 )
 tunnelScene = ExtResource( 4 )
 
-[node name="tunnel" parent="playerBase" instance=ExtResource( 4 )]
-points = PoolVector2Array( 400, 75, 400, 300 )
-
 [node name="command" parent="playerBase" instance=ExtResource( 2 )]
 position = Vector2( 400, 300 )
 type = "command"
+
+[node name="tunnel" parent="playerBase/command" instance=ExtResource( 4 )]
+position = Vector2( -400, -300 )
+points = PoolVector2Array( 400, 75, 400, 300 )
 
 [node name="dropoff" parent="playerBase" instance=ExtResource( 2 )]
 position = Vector2( 400, 75 )
@@ -104,4 +107,11 @@ script = ExtResource( 7 )
 base_resource = ExtResource( 6 )
 
 [node name="resources" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="enemy_generator" type="Node2D" parent="."]
+script = ExtResource( 9 )
+base_enemy = ExtResource( 10 )
+
+[node name="enemies" type="Node2D" parent="."]
 script = ExtResource( 8 )

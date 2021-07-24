@@ -65,17 +65,21 @@ func check_timeouts():
 	if len(active_timers) > 0:
 		# just do the first one idc
 		var type = active_timers[0]
-		if len(known_bases) > 0:
-			known_bases[0].pack_stats()
-		if type == "oxygen":
-			get_tree().change_scene("res://scenes/infoscreens/oxy_go.tscn")
-		elif type == "water":
-			get_tree().change_scene("res://scenes/infoscreens/water_go.tscn")
-		elif type == "food":
-			get_tree().change_scene("res://scenes/infoscreens/food_go.tscn")
-		elif type == "mineral":
-			get_tree().change_scene("res://scenes/infoscreens/mineral_go.tscn")
+		end_game(type)
 		
+func end_game(type):
+	if len(known_bases) > 0:
+		known_bases[0].pack_stats()
+	if type == "oxygen":
+		get_tree().change_scene("res://scenes/infoscreens/oxy_go.tscn")
+	elif type == "water":
+		get_tree().change_scene("res://scenes/infoscreens/water_go.tscn")
+	elif type == "food":
+		get_tree().change_scene("res://scenes/infoscreens/food_go.tscn")
+	elif type == "mineral":
+		get_tree().change_scene("res://scenes/infoscreens/mineral_go.tscn")
+	elif type == "dead":
+		get_tree().change_scene("res://scenes/infoscreens/dead_go.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

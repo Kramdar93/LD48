@@ -5,3 +5,4 @@ I pity all who tread 'deeper and deeper' down this rabit hole...
 Collision layers:
 1. tunnel placement - buildings block, resources don't
 2. resources - buildings can use them, but tunnels need to be built on top
+4. enemy senses - need to be able to see buildings, but not interfer with placement or see a building's sensing circle.

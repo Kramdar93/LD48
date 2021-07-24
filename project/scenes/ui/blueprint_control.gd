@@ -45,8 +45,13 @@ func _process(delta):
 		
 
 func build():
+	# todo: cancel blueprints on game over
 	if can_place:
-		get_parent().get_parent().get_node("baseController").create_building(origin, global_position)
+		var baseController = get_parent().get_parent().get_node("baseController")
+		if baseController == null:
+			print_debug("Something went wrong cancelling a blueprint!")
+		else:
+			baseController.create_building(origin, global_position)
 		get_parent().queue_free()
 		get_node("/root/Game/Static/audio").play_sfx("place")
 	else:
@@ -54,7 +59,11 @@ func build():
 		cancel()
 	
 func cancel():
-	get_parent().get_parent().get_node("baseController").submit_trade(0,0,0,1,0)
+	var baseController = get_parent().get_parent().get_node("baseController")
+	if baseController == null:
+		print_debug("Something went wrong cancelling a blueprint!")
+	else:
+		baseController.submit_trade(0,0,0,0,100)
 	get_parent().queue_free()
 
 func _input(event):

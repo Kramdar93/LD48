@@ -14,6 +14,8 @@ var build_menu_path = null
 # kinda hacky but whatever
 #var time_since_created = 0.0
 
+var active = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect("pressed", self, "_button_pressed")
@@ -55,6 +57,7 @@ func get_should_open_shop():
 	return !driver.is_enemy and driver.type == "port"
 
 func _button_pressed():
+	if not active: return
 	# for some reason the button is clicked immediately, probably because we are 
 	# adding it on the same frame and the mouse is already down. This is fine, 
 	# but if the menu stops opening, it is probably because this became too slow.

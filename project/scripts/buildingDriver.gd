@@ -1,8 +1,9 @@
-extends Node
+extends Node2D
 
 
 var type = "empty"
 var is_enemy = false
+var is_active = true
 
 var parent_building = null
 var child_buildings = []
@@ -13,7 +14,8 @@ var food_store = 0.0
 var mineral_store = 0.0
 var credit_store = 0.0
 
-var sensing_passes_needed = 3
+var sensing_tick_delay = 0.1
+var sensing_tick_timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,7 +27,7 @@ func _ready():
 #	pass
 
 func extract_init():
-	var overlaps = get_parent().get_node("sensingArea").get_overlapping_areas() # does not update immediately, but player cannot immediately build improved buildings.
+	var overlaps = get_node("sensingArea").get_overlapping_areas() # does not update immediately, but player cannot immediately build improved buildings.
 	for area in overlaps:
 		var resource = area.get_parent()
 		if resource.has_method("get_type"):
@@ -43,20 +45,22 @@ func extract_init():
 	get_node("/root/Game/Static/audio").play_sfx("bad")
 
 func _physics_process(delta):
-	if sensing_passes_needed > 0: # run this a few times, we may not be updated fully yet...
-		var overlaps = get_parent().get_node("sensingArea").get_overlapping_areas()
+	if not is_active:
+		return
+	sensing_tick_timer += delta
+	if sensing_tick_timer > sensing_tick_delay:
+		sensing_tick_timer = 0
+		var overlaps = get_node("sensingArea").get_overlapping_areas()
 		for area in overlaps:
 			var resource = area.get_parent()
 			if resource.has_method("get_type"):
 				resource.z_index = 0
-		sensing_passes_needed -= 1
 		
 
 func sensor_init():
 	# resize collider!
 	get_parent().get_node("light").scale *= 10
-	get_parent().get_node("sensingArea/CollisionShape2D").scale *= 10
-	sensing_passes_needed = 3 # do this next physics tick
+	get_node("sensingArea/CollisionShape2D").scale *= 10
 	get_node("/root/Game/Static/audio").play_sfx("sensor")
 	
 # this will likely be non-functional for the compo...
@@ -83,3 +87,23 @@ func set_type(new_type):
 		if new_type == "command":
 			type = new_type
 			get_parent().get_node("sprite").frame = 8
+
+func kill():
+	is_active = false
+	get_parent().find_node("sprite").modulate = Color(1,0,0)
+	get_parent().find_node("Button").active = false
+	for edge in get_parent().find_node("edges").get_children():
+		edge.default_color = Color(1,0,0)
+	for child in child_buildings:
+		child.find_node("driver").kill()
+	# hide resources etc
+	get_parent().find_node("light").modulate = Color(1,1,1,0)
+	var overlaps = get_node("sensingArea").get_overlapping_areas()
+	for area in overlaps:
+		var resource = area.get_parent()
+		if resource.has_method("get_type"):
+			resource.z_index = -1000
+	# handle hacky stuff
+	if type == "command":
+		get_parent().find_node("tunnel").default_color = Color(1,0,0)
+		get_node("/root/Game/Static/Clock").end_game("dead")
