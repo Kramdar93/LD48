@@ -95,6 +95,7 @@ func set_type(new_type):
 		if new_type == "command":
 			type = new_type
 			get_parent().get_node("sprite").frame = 8
+		get_parent().get_node("Button")._button_pressed()
 
 func kill():
 	is_active = false

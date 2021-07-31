@@ -34,3 +34,10 @@ func _mouse_enter():
 	
 func _mouse_exit():
 	get_node("cost").force_update("",null)
+
+func _input(event):
+	if event is InputEventKey and event.is_pressed():
+		# todo: do this properly... 
+		var key = OS.get_scancode_string(event.scancode)
+		if key == 'T':
+			_button_pressed()

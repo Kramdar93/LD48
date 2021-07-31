@@ -28,10 +28,12 @@ func _button_pressed():
 	get_parent().get_parent().get_node("light").scale = init_scale
 	var result = get_parent().get_parent().get_parent().get_node("baseController").submit_trade(0,0,0,-mineral_cost,-credit_cost)
 	if result:
-		get_parent().get_parent().get_node("driver").set_type(type)
+		var building = get_parent().get_parent()
+		building.get_node("driver").set_type(type)
+		get_parent().remove()
+		building.get_node("Button")._button_pressed()
 	else:
 		get_node("/root/Game/Static/audio").play_sfx("cancel")
-	get_parent().remove()
 
 func get_cost():
 	var result = ""
@@ -51,3 +53,13 @@ func _mouse_exit():
 		get_parent().get_parent().get_node("light").scale = init_scale
 	get_node("cost").force_update("",null)
 	
+func _input(event):
+	if event is InputEventKey and event.is_pressed():
+		# todo: do this properly... 
+		var key = OS.get_scancode_string(event.scancode)
+		if key == 'E' and type == "extractor":
+			_button_pressed()
+		elif key == 'R' and type == "sensor":
+			_button_pressed()
+		elif key == 'F' and type == "fortification":
+			_button_pressed()

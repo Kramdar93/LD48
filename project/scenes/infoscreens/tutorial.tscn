@@ -134,7 +134,7 @@ frame = 1
 [node name="custom_text10" parent="." instance=ExtResource( 3 )]
 position = Vector2( 49.5, 14 )
 line_length = 80
-text = "Extractor - mines minerals on the left"
+text = "(E)xtractor - mines minerals on the left"
 
 [node name="icons6" type="Sprite" parent="."]
 position = Vector2( 18.5, 46 )
@@ -147,7 +147,7 @@ frame = 3
 [node name="custom_text9" parent="." instance=ExtResource( 3 )]
 position = Vector2( 49.5, 46 )
 line_length = 80
-text = "Sensor - reveals nearby resources"
+text = "Senso(R) - reveals nearby resources"
 
 [node name="icons5" type="Sprite" parent="."]
 position = Vector2( 18.5, 78 )
@@ -160,7 +160,7 @@ frame = 4
 [node name="custom_text8" parent="." instance=ExtResource( 3 )]
 position = Vector2( 49.5, 78 )
 line_length = 80
-text = "Fortification - looks cool I guess"
+text = "(F)ortification - looks cool I guess"
 
 [node name="icons9" type="Sprite" parent="."]
 position = Vector2( 18.5, 110 )
