@@ -98,6 +98,19 @@ position = Vector2( -303.5, 110 )
 line_length = 80
 text = "Monster"
 
+[node name="icons12" type="Sprite" parent="."]
+position = Vector2( -334.5, 143 )
+scale = Vector2( 0.125, 0.125 )
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 4
+frame = 13
+
+[node name="custom_text15" parent="." instance=ExtResource( 3 )]
+position = Vector2( -303.5, 143 )
+line_length = 80
+text = "Nest"
+
 [node name="icons8" type="Sprite" parent="."]
 position = Vector2( 18.5, -18 )
 scale = Vector2( 0.125, 0.125 )

@@ -44,8 +44,11 @@ func extract_init():
 			elif resource.get_type() == "credit":
 				credit_store += resource.amount
 			elif resource.get_type() == "monster":
-				food_store += 1
+				food_store += 2
 				water_store += 1
+			elif resource.get_type() == "nest":
+				food_store += 5
+				water_store += 10
 			resource.queue_free()	
 	get_node("/root/Game/Static/audio").play_sfx("bad")
 

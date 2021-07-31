@@ -40,12 +40,18 @@ func get_bounded_randi(bottom, top):
 	
 func get_random_type_by_depth(depth):
 	var monster_weight = 1
-	# todo: add more... maybe
+	var nest_weight = 1
+	if depth < 15:
+		nest_weight = 0
+	if depth > 30:
+		nest_weight = 2
 	var monster_limit = monster_weight
-	var total = monster_limit
+	var total = monster_limit + nest_weight
 	var randy = randi() % total
 	if randy < monster_limit:
 		return "monster"
+	else:
+		return "nest"
 
 func generate_chunk(x,y):
 	var startX = x * width
@@ -61,10 +67,11 @@ func gen_enemy(x,y,startX,startY,endX,endY):
 	var newX = get_bounded_randi(startX,endX)
 	var newY = get_bounded_randi(startY,endY)
 	var new_enemy = base_enemy.instance()
+	get_parent().get_node("enemies").add_child(new_enemy)
 	new_enemy.position.x = newX
 	new_enemy.position.y = newY
 	new_enemy.type = type
-	get_parent().get_node("enemies").add_child(new_enemy)
+	new_enemy.init()
 	
 
 func _process(delta):
